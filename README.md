@@ -72,7 +72,7 @@ sudo apt-get install libssl-dev
 
 **macOS:**
 ```bash
-brew install openssl
+brew install openssl@3
 ```
 
 **Windows:**
