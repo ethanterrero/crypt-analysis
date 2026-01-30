@@ -14,6 +14,7 @@ include_directories(${OPENSSL_INCLUDE_DIR})
 # We will add more source files here as we implement them
 add_executable(file-crypto
     src/main.cpp
+    src/io/file_handler.cpp
 )
 
 # Link against OpenSSL
