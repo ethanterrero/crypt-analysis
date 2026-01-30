@@ -1,4 +1,0 @@
-/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/file-crypto.dir
-/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/test.dir
-/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/edit_cache.dir
-/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/rebuild_cache.dir
