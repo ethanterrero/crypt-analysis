@@ -1,0 +1,29 @@
+# Build directories
+build/
+bin/
+lib/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+
+# IDE metadata
+.vscode/
+.idea/
+*.swp
+*.DS_Store
+
+# Compiled Object files
+*.o
+*.obj
+*.dylib
+*.so
+*.dll
+*.exe
+
+# Test output
+*.enc
+*.dec
