@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /opt/homebrew/Cellar/openssl@3/3.6.1/include
+CXX_INCLUDES = -I/Users/milesoop/Desktop/443project/crypt-analysis/src -isystem /opt/homebrew/opt/openssl@3/include
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64
 

@@ -4,7 +4,7 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_UNAME"
@@ -20,9 +20,9 @@ events:
     names:
       - "uname"
     candidate_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -35,11 +35,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/uname"
-      - "/usr/local/smlnj/bin/uname"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/uname"
+      - "/usr/local/opt/openjdk/bin/uname"
+      - "/Users/milesoop/anaconda3/bin/uname"
+      - "/Users/milesoop/anaconda3/condabin/uname"
       - "/opt/homebrew/bin/uname"
       - "/opt/homebrew/sbin/uname"
       - "/usr/local/bin/uname"
@@ -47,9 +47,9 @@ events:
     found: "/usr/bin/uname"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -62,21 +62,18 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      The system is: Darwin - 24.6.0 - arm64
+      The system is: Darwin - 23.5.0 - arm64
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_MAKE_PROGRAM"
@@ -94,9 +91,9 @@ events:
       - "make"
       - "smake"
     candidate_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -109,11 +106,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/gmake"
-      - "/usr/local/smlnj/bin/gmake"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/gmake"
+      - "/usr/local/opt/openjdk/bin/gmake"
+      - "/Users/milesoop/anaconda3/bin/gmake"
+      - "/Users/milesoop/anaconda3/condabin/gmake"
       - "/opt/homebrew/bin/gmake"
       - "/opt/homebrew/sbin/gmake"
       - "/usr/local/bin/gmake"
@@ -126,10 +123,10 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/gmake"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/gmake"
       - "/Library/Apple/usr/bin/gmake"
-      - "/Users/ethanterrero/.cargo/bin/gmake"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/make"
-      - "/usr/local/smlnj/bin/make"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/make"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/gmake"
+      - "/usr/local/opt/openjdk/bin/make"
+      - "/Users/milesoop/anaconda3/bin/make"
+      - "/Users/milesoop/anaconda3/condabin/make"
       - "/opt/homebrew/bin/make"
       - "/opt/homebrew/sbin/make"
       - "/usr/local/bin/make"
@@ -137,9 +134,9 @@ events:
     found: "/usr/bin/make"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -152,15 +149,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_CXX_COMPILER"
@@ -182,9 +176,9 @@ events:
       - "icx"
       - "clang++"
     candidate_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -197,11 +191,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/c++"
-      - "/usr/local/smlnj/bin/c++"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/c++"
+      - "/usr/local/opt/openjdk/bin/c++"
+      - "/Users/milesoop/anaconda3/bin/c++"
+      - "/Users/milesoop/anaconda3/condabin/c++"
       - "/opt/homebrew/bin/c++"
       - "/opt/homebrew/sbin/c++"
       - "/usr/local/bin/c++"
@@ -209,9 +203,9 @@ events:
     found: "/usr/bin/c++"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -224,18 +218,15 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     mode: "file"
     variable: "src_in"
@@ -251,13 +242,13 @@ events:
     names:
       - "CMakeCXXCompilerId.cpp.in"
     candidate_directories:
-      - "/opt/homebrew/share/cmake/Modules/"
-    found: "/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/"
+    found: "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -270,16 +261,13 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
@@ -294,54 +282,45 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is AppleClang, found in:
-        /Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/4.2.3/CompilerIdCXX/a.out
+        /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/4.2.3/CompilerIdCXX/a.out
       
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:290 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:290 (message)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Detecting CXX compiler apple sysroot: "/usr/bin/c++" "-E" "apple-sdk.cpp"
         # 1 "apple-sdk.cpp"
         # 1 "<built-in>" 1
         # 1 "<built-in>" 3
-        # 513 "<built-in>" 3
+        # 439 "<built-in>" 3
         # 1 "<command line>" 1
         # 1 "<built-in>" 2
         # 1 "apple-sdk.cpp" 2
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 1 3 4
-        # 89 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityVersions.h" 1 3 4
-        # 90 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 2 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/TargetConditionals.h" 1 3 4
-        # 91 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 2 3 4
-        # 207 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h" 1 3 4
-        # 196 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h" 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityVersions.h" 1 3 4
-        # 197 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h" 2 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 1 3 4
-        # 33 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityVersions.h" 1 3 4
-        # 34 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 2 3 4
-        # 198 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h" 2 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternalLegacy.h" 1 3 4
-        # 34 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternalLegacy.h" 3 4
-        # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 1 3 4
-        # 35 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternalLegacy.h" 2 3 4
-        # 199 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h" 2 3 4
-        # 208 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 2 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityMacros.h" 1 3 4
+        # 86 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityMacros.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityVersions.h" 1 3 4
+        # 87 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityMacros.h" 2 3 4
+        # 206 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityMacros.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/Availability.h" 1 3 4
+        # 177 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/Availability.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityInternal.h" 1 3 4
+        # 176 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityInternal.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityInternalLegacy.h" 1 3 4
+        # 177 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityInternal.h" 2 3 4
+        # 178 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/Availability.h" 2 3 4
+        # 207 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/AvailabilityMacros.h" 2 3 4
         # 2 "apple-sdk.cpp" 2
         
         
-      Found apple sysroot: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+      Found apple sysroot: /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_AR"
@@ -358,9 +337,9 @@ events:
       - "ar"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -372,13 +351,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     found: "/usr/bin/ar"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -391,15 +370,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_RANLIB"
@@ -416,9 +392,9 @@ events:
       - "ranlib"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -430,13 +406,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     found: "/usr/bin/ranlib"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -449,15 +425,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_STRIP"
@@ -474,9 +447,9 @@ events:
       - "strip"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -488,13 +461,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     found: "/usr/bin/strip"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -507,15 +480,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
@@ -532,9 +502,9 @@ events:
       - "ld"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -546,13 +516,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     found: "/usr/bin/ld"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -565,15 +535,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_NM"
@@ -590,9 +557,9 @@ events:
       - "nm"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -604,13 +571,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     found: "/usr/bin/nm"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -623,15 +590,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_OBJDUMP"
@@ -648,9 +612,9 @@ events:
       - "objdump"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -662,13 +626,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     found: "/usr/bin/objdump"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -681,15 +645,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_OBJCOPY"
@@ -706,9 +667,9 @@ events:
       - "objcopy"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -720,12 +681,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/usr/bin/objcopy"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/objcopy"
-      - "/usr/local/smlnj/bin/objcopy"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/objcopy"
+      - "/usr/local/opt/openjdk/bin/objcopy"
+      - "/Users/milesoop/anaconda3/bin/objcopy"
+      - "/Users/milesoop/anaconda3/condabin/objcopy"
       - "/opt/homebrew/bin/objcopy"
       - "/opt/homebrew/sbin/objcopy"
       - "/usr/local/bin/objcopy"
@@ -737,13 +698,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/objcopy"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/objcopy"
       - "/Library/Apple/usr/bin/objcopy"
-      - "/Users/ethanterrero/.cargo/bin/objcopy"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/objcopy"
     found: false
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -756,15 +717,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_READELF"
@@ -781,9 +739,9 @@ events:
       - "readelf"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -795,12 +753,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/usr/bin/readelf"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/readelf"
-      - "/usr/local/smlnj/bin/readelf"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/readelf"
+      - "/usr/local/opt/openjdk/bin/readelf"
+      - "/Users/milesoop/anaconda3/bin/readelf"
+      - "/Users/milesoop/anaconda3/condabin/readelf"
       - "/opt/homebrew/bin/readelf"
       - "/opt/homebrew/sbin/readelf"
       - "/usr/local/bin/readelf"
@@ -812,13 +770,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/readelf"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/readelf"
       - "/Library/Apple/usr/bin/readelf"
-      - "/Users/ethanterrero/.cargo/bin/readelf"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/readelf"
     found: false
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -831,15 +789,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_DLLTOOL"
@@ -856,9 +811,9 @@ events:
       - "dlltool"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -870,12 +825,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/usr/bin/dlltool"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/dlltool"
-      - "/usr/local/smlnj/bin/dlltool"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/dlltool"
+      - "/usr/local/opt/openjdk/bin/dlltool"
+      - "/Users/milesoop/anaconda3/bin/dlltool"
+      - "/Users/milesoop/anaconda3/condabin/dlltool"
       - "/opt/homebrew/bin/dlltool"
       - "/opt/homebrew/sbin/dlltool"
       - "/usr/local/bin/dlltool"
@@ -887,13 +842,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/dlltool"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/dlltool"
       - "/Library/Apple/usr/bin/dlltool"
-      - "/Users/ethanterrero/.cargo/bin/dlltool"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/dlltool"
     found: false
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -906,15 +861,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_ADDR2LINE"
@@ -931,9 +883,9 @@ events:
       - "addr2line"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -945,12 +897,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/usr/bin/addr2line"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/addr2line"
-      - "/usr/local/smlnj/bin/addr2line"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/addr2line"
+      - "/usr/local/opt/openjdk/bin/addr2line"
+      - "/Users/milesoop/anaconda3/bin/addr2line"
+      - "/Users/milesoop/anaconda3/condabin/addr2line"
       - "/opt/homebrew/bin/addr2line"
       - "/opt/homebrew/sbin/addr2line"
       - "/usr/local/bin/addr2line"
@@ -962,13 +914,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/addr2line"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/addr2line"
       - "/Library/Apple/usr/bin/addr2line"
-      - "/Users/ethanterrero/.cargo/bin/addr2line"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/addr2line"
     found: false
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -981,15 +933,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_TAPI"
@@ -1006,9 +955,9 @@ events:
       - "tapi"
     candidate_directories:
       - "/usr/bin/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1020,12 +969,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "/usr/bin/tapi"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/tapi"
-      - "/usr/local/smlnj/bin/tapi"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/tapi"
+      - "/usr/local/opt/openjdk/bin/tapi"
+      - "/Users/milesoop/anaconda3/bin/tapi"
+      - "/Users/milesoop/anaconda3/condabin/tapi"
       - "/opt/homebrew/bin/tapi"
       - "/opt/homebrew/sbin/tapi"
       - "/usr/local/bin/tapi"
@@ -1037,13 +986,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/tapi"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/tapi"
       - "/Library/Apple/usr/bin/tapi"
-      - "/Users/ethanterrero/.cargo/bin/tapi"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/tapi"
     found: false
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1056,15 +1005,12 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake:76 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/Platform/Darwin.cmake:76 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_INSTALL_NAME_TOOL"
@@ -1080,9 +1026,9 @@ events:
     names:
       - "install_name_tool"
     candidate_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1095,21 +1041,15 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
     searched_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/install_name_tool"
-      - "/usr/local/smlnj/bin/install_name_tool"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/install_name_tool"
-      - "/opt/homebrew/bin/install_name_tool"
-      - "/opt/homebrew/sbin/install_name_tool"
-      - "/usr/local/bin/install_name_tool"
-      - "/System/Cryptexes/App/usr/bin/install_name_tool"
-    found: "/usr/bin/install_name_tool"
+      - "/usr/local/opt/openjdk/bin/install_name_tool"
+    found: "/Users/milesoop/anaconda3/bin/install_name_tool"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1122,22 +1062,19 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
   -
     kind: "try_compile-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md"
-      binary: "/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md"
+      source: "/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH"
+      binary: "/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1150,58 +1087,58 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md'
+        Change Dir: '/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_84dce/fast
-        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_84dce.dir/build.make CMakeFiles/cmTC_84dce.dir/build
-        Building CXX object CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
-        Apple clang version 17.0.0 (clang-1700.0.13.5)
-        Target: arm64-apple-darwin24.6.0
+        Run Build Command(s): /Applications/CMake.app/Contents/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_139f5/fast
+        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_139f5.dir/build.make CMakeFiles/cmTC_139f5.dir/build
+        Building CXX object CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp
+        Apple clang version 16.0.0 (clang-1600.0.26.4)
+        Target: arm64-apple-darwin23.5.0
         Thread model: posix
-        InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+        InstalledDir: /Library/Developer/CommandLineTools/usr/bin
         clang++: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
-        ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"
-         "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=15.5 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md -target-linker-version 1167.5 -v -fcoverage-compilation-dir=/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
-        clang -cc1 version 17.0.0 (clang-1700.0.13.5) default target arm64-apple-darwin24.6.0
-        ignoring nonexistent directory "/usr/local/include"
-        ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include"
-        ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/SubFrameworks"
-        ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
+        ignoring nonexistent directory "/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"
+         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx14.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=14.5 -fvisibility-inlines-hidden-static-local-var -fbuiltin-headers-in-system-modules -target-cpu apple-m1 -target-feature +v8.5a -target-feature +aes -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +lse -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sha2 -target-feature +sha3 -target-feature +neon -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-abi darwinpcs -debugger-tuning=lldb -target-linker-version 1115.7.3 -v -fcoverage-compilation-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/16 -dependency-file CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/16/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -fdeprecated-macro -fdebug-compilation-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 16.0.0 (clang-1600.0.26.4) default target arm64-apple-darwin23.5.0
+        ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/local/include"
+        ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Library/Frameworks"
         #include "..." search starts here:
         #include <...> search starts here:
-         /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1
-         /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include
-         /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
-         /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
-         /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
+         /usr/local/include
+         /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1
+         /Library/Developer/CommandLineTools/usr/lib/clang/16/include
+         /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include
+         /Library/Developer/CommandLineTools/usr/include
+         /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks (framework directory)
         End of search list.
-        Linking CXX executable cmTC_84dce
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_84dce.dir/link.txt --verbose=1
-        Apple clang version 17.0.0 (clang-1700.0.13.5)
-        Target: arm64-apple-darwin24.6.0
+        Linking CXX executable cmTC_139f5
+        /Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_139f5.dir/link.txt --verbose=1
+        Apple clang version 16.0.0 (clang-1600.0.26.4)
+        Target: arm64-apple-darwin23.5.0
         Thread model: posix
-        InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
-         "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.5 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_84dce -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a
-        @(#)PROGRAM:ld PROJECT:ld-1167.5
-        BUILD 01:45:05 Apr 30 2025
+        InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 14.0.0 14.5 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_139f5 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/16/lib/darwin/libclang_rt.osx.a
+        @(#)PROGRAM:ld PROJECT:ld-1115.7.3
+        BUILD 07:38:57 Oct  4 2024
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
         will use ld-classic for: armv6 armv7 armv7s i386 armv6m armv7k armv7m armv7em
-        LTO support using: LLVM version 17.0.0 (static support for 29, runtime is 29)
-        TAPI support using: Apple TAPI version 17.0.0 (tapi-1700.0.3.5)
+        LTO support using: LLVM version 16.0.0 (static support for 29, runtime is 29)
+        TAPI support using: Apple TAPI version 16.0.0 (tapi-1600.0.11.8)
         Library search paths:
-        	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib
-        	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/swift
+        	/usr/local/lib
+        	/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib
+        	/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib/swift
         Framework search paths:
-        	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks
-        /usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_84dce
+        	/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks
+        /usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_139f5
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:122 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:122 (message)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Effective list of requested architectures (possibly empty)  : ""
@@ -1209,129 +1146,131 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
-          add: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1]
-          add: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include]
-          add: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
-          add: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+          add: [/usr/local/include]
+          add: [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1]
+          add: [/Library/Developer/CommandLineTools/usr/lib/clang/16/include]
+          add: [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include]
+          add: [/Library/Developer/CommandLineTools/usr/include]
         end of search list found
-        collapse include dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1]
-        collapse include dir [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include]
-        collapse include dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
-        collapse include dir [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
-        implicit include dirs: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1]
+        collapse include dir [/Library/Developer/CommandLineTools/usr/lib/clang/16/include] ==> [/Library/Developer/CommandLineTools/usr/lib/clang/16/include]
+        collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include]
+        collapse include dir [/Library/Developer/CommandLineTools/usr/include] ==> [/Library/Developer/CommandLineTools/usr/include]
+        implicit include dirs: [/usr/local/include;/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1;/Library/Developer/CommandLineTools/usr/lib/clang/16/include;/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include;/Library/Developer/CommandLineTools/usr/include]
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md']
+        ignore line: [Change Dir: '/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_84dce/fast]
-        ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_84dce.dir/build.make CMakeFiles/cmTC_84dce.dir/build]
-        ignore line: [Building CXX object CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
-        ignore line: [Apple clang version 17.0.0 (clang-1700.0.13.5)]
-        ignore line: [Target: arm64-apple-darwin24.6.0]
+        ignore line: [Run Build Command(s): /Applications/CMake.app/Contents/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_139f5/fast]
+        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_139f5.dir/build.make CMakeFiles/cmTC_139f5.dir/build]
+        ignore line: [Building CXX object CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Apple clang version 16.0.0 (clang-1600.0.26.4)]
+        ignore line: [Target: arm64-apple-darwin23.5.0]
         ignore line: [Thread model: posix]
-        ignore line: [InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin]
+        ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
         ignore line: [clang++: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-        ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"]
-        ignore line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=15.5 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md -target-linker-version 1167.5 -v -fcoverage-compilation-dir=/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-4kl0md -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
-        ignore line: [clang -cc1 version 17.0.0 (clang-1700.0.13.5) default target arm64-apple-darwin24.6.0]
-        ignore line: [ignoring nonexistent directory "/usr/local/include"]
-        ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include"]
-        ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/SubFrameworks"]
-        ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"]
+        ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"]
+        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx14.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=14.5 -fvisibility-inlines-hidden-static-local-var -fbuiltin-headers-in-system-modules -target-cpu apple-m1 -target-feature +v8.5a -target-feature +aes -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +lse -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sha2 -target-feature +sha3 -target-feature +neon -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-abi darwinpcs -debugger-tuning=lldb -target-linker-version 1115.7.3 -v -fcoverage-compilation-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/16 -dependency-file CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/16/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -fdeprecated-macro -fdebug-compilation-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/CMakeScratch/TryCompile-vCGIsH -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 16.0.0 (clang-1600.0.26.4) default target arm64-apple-darwin23.5.0]
+        ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Library/Frameworks"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
-        ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1]
-        ignore line: [ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include]
-        ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
-        ignore line: [ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include]
-        ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include/c++/v1]
+        ignore line: [ /Library/Developer/CommandLineTools/usr/lib/clang/16/include]
+        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/include]
+        ignore line: [ /Library/Developer/CommandLineTools/usr/include]
+        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking CXX executable cmTC_84dce]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_84dce.dir/link.txt --verbose=1]
-        ignore line: [Apple clang version 17.0.0 (clang-1700.0.13.5)]
-        ignore line: [Target: arm64-apple-darwin24.6.0]
+        ignore line: [Linking CXX executable cmTC_139f5]
+        ignore line: [/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_139f5.dir/link.txt --verbose=1]
+        ignore line: [Apple clang version 16.0.0 (clang-1600.0.26.4)]
+        ignore line: [Target: arm64-apple-darwin23.5.0]
         ignore line: [Thread model: posix]
-        ignore line: [InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin]
-        link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.5 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_84dce -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
-          arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+        ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
+        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 14.0.0 14.5 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_139f5 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/16/lib/darwin/libclang_rt.osx.a]
+          arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
-          arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib] ==> skip value of -lto_library
+          arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
           arg [-dynamic] ==> ignore
           arg [-arch] ==> ignore
           arg [arm64] ==> ignore
           arg [-platform_version] ==> ignore
           arg [macos] ==> ignore
-          arg [15.0.0] ==> ignore
-          arg [15.5] ==> ignore
+          arg [14.0.0] ==> ignore
+          arg [14.5] ==> ignore
           arg [-syslibroot] ==> ignore
-          arg [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk] ==> ignore
+          arg [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk] ==> ignore
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_84dce] ==> ignore
+          arg [cmTC_139f5] ==> ignore
           arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_84dce.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_139f5.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lc++] ==> lib [c++]
           arg [-lSystem] ==> lib [System]
-          arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
-        linker tool for 'CXX': /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
-        Library search paths: [;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/swift]
-        Framework search paths: [;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks]
+          arg [/Library/Developer/CommandLineTools/usr/lib/clang/16/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/16/lib/darwin/libclang_rt.osx.a]
+        linker tool for 'CXX': /Library/Developer/CommandLineTools/usr/bin/ld
+        Library search paths: [;/usr/local/lib;/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib;/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib/swift]
+        Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks]
         remove lib [System]
-        remove lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
+        remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/16/lib/darwin/libclang_rt.osx.a]
         collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
-        collapse library dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib]
-        collapse library dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/swift] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/swift]
-        collapse framework dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks]
+        collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+        collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib]
+        collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib/swift] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib/swift]
+        collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks]
         implicit libs: [c++]
         implicit objs: []
-        implicit dirs: [/usr/local/lib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/swift]
-        implicit fwks: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks]
+        implicit dirs: [/usr/local/lib;/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib;/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/lib/swift]
+        implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks]
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      Running the CXX compiler's linker: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" "-v"
-      @(#)PROGRAM:ld PROJECT:ld-1167.5
-      BUILD 01:45:05 Apr 30 2025
+      Running the CXX compiler's linker: "/Library/Developer/CommandLineTools/usr/bin/ld" "-v"
+      @(#)PROGRAM:ld PROJECT:ld-1115.7.3
+      BUILD 07:38:57 Oct  4 2024
       configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
       will use ld-classic for: armv6 armv7 armv7s i386 armv6m armv7k armv7m armv7em
-      LTO support using: LLVM version 17.0.0 (static support for 29, runtime is 29)
-      TAPI support using: Apple TAPI version 17.0.0 (tapi-1700.0.3.5)
+      LTO support using: LLVM version 16.0.0 (static support for 29, runtime is 29)
+      TAPI support using: Apple TAPI version 16.0.0 (tapi-1600.0.11.8)
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:517 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake:295 (find_package)"
-      - "CMakeLists.txt:8 (find_package)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/FindPkgConfig.cmake:517 (find_program)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/FindOpenSSL.cmake:295 (find_package)"
+      - "CMakeLists.txt:18 (find_package)"
     mode: "program"
     variable: "PKG_CONFIG_EXECUTABLE"
     description: "pkg-config executable"
@@ -1347,9 +1286,9 @@ events:
       - "pkg-config"
       - "pkgconf"
     candidate_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/usr/local/opt/openjdk/bin/"
+      - "/Users/milesoop/anaconda3/bin/"
+      - "/Users/milesoop/anaconda3/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1362,10 +1301,10 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/bin/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/sbin/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/bin/"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/sbin/"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/opt/homebrew/"
@@ -1377,6 +1316,9 @@ events:
       - "/usr/"
       - "/bin/"
       - "/sbin/"
+      - "/Applications/CMake.app/Contents/bin/"
+      - "/Applications/CMake.app/Contents/sbin/"
+      - "/Applications/CMake.app/Contents/"
       - "/usr/X11R6/bin/"
       - "/usr/X11R6/sbin/"
       - "/usr/X11R6/"
@@ -1392,23 +1334,115 @@ events:
       - "/opt/local/bin/"
       - "/opt/local/sbin/"
       - "/opt/local/"
-      - "/Users/ethanterrero/Applications/"
+      - "/Users/milesoop/Applications/"
       - "/Applications/"
-      - "/Applications/Xcode.app/Contents/Applications/"
-      - "/Applications/Xcode.app/Contents/Developer/Applications/"
     searched_directories:
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/pkg-config"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/pkgconf"
-      - "/usr/local/smlnj/bin/pkg-config"
-      - "/usr/local/smlnj/bin/pkgconf"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/pkg-config"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/pkgconf"
-    found: "/opt/homebrew/bin/pkg-config"
+      - "/usr/local/opt/openjdk/bin/pkg-config"
+      - "/usr/local/opt/openjdk/bin/pkgconf"
+      - "/Users/milesoop/anaconda3/bin/pkg-config"
+      - "/Users/milesoop/anaconda3/bin/pkgconf"
+      - "/Users/milesoop/anaconda3/condabin/pkg-config"
+      - "/Users/milesoop/anaconda3/condabin/pkgconf"
+      - "/opt/homebrew/bin/pkg-config"
+      - "/opt/homebrew/bin/pkgconf"
+      - "/opt/homebrew/sbin/pkg-config"
+      - "/opt/homebrew/sbin/pkgconf"
+      - "/usr/local/bin/pkg-config"
+      - "/usr/local/bin/pkgconf"
+      - "/System/Cryptexes/App/usr/bin/pkg-config"
+      - "/System/Cryptexes/App/usr/bin/pkgconf"
+      - "/usr/bin/pkg-config"
+      - "/usr/bin/pkgconf"
+      - "/bin/pkg-config"
+      - "/bin/pkgconf"
+      - "/usr/sbin/pkg-config"
+      - "/usr/sbin/pkgconf"
+      - "/sbin/pkg-config"
+      - "/sbin/pkgconf"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/pkg-config"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/pkgconf"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/pkg-config"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/pkgconf"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/pkg-config"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/pkgconf"
+      - "/Library/Apple/usr/bin/pkg-config"
+      - "/Library/Apple/usr/bin/pkgconf"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/pkg-config"
+      - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/pkgconf"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/bin/pkg-config"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/bin/pkgconf"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/sbin/pkg-config"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/sbin/pkgconf"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/pkg-config"
+      - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr/pkgconf"
+      - "/opt/homebrew/bin/pkg-config"
+      - "/opt/homebrew/bin/pkgconf"
+      - "/opt/homebrew/sbin/pkg-config"
+      - "/opt/homebrew/sbin/pkgconf"
+      - "/opt/homebrew/pkg-config"
+      - "/opt/homebrew/pkgconf"
+      - "/usr/local/bin/pkg-config"
+      - "/usr/local/bin/pkgconf"
+      - "/usr/local/sbin/pkg-config"
+      - "/usr/local/sbin/pkgconf"
+      - "/usr/local/pkg-config"
+      - "/usr/local/pkgconf"
+      - "/usr/bin/pkg-config"
+      - "/usr/bin/pkgconf"
+      - "/usr/sbin/pkg-config"
+      - "/usr/sbin/pkgconf"
+      - "/usr/pkg-config"
+      - "/usr/pkgconf"
+      - "/bin/pkg-config"
+      - "/bin/pkgconf"
+      - "/sbin/pkg-config"
+      - "/sbin/pkgconf"
+      - "/Applications/CMake.app/Contents/bin/pkg-config"
+      - "/Applications/CMake.app/Contents/bin/pkgconf"
+      - "/Applications/CMake.app/Contents/sbin/pkg-config"
+      - "/Applications/CMake.app/Contents/sbin/pkgconf"
+      - "/Applications/CMake.app/Contents/pkg-config"
+      - "/Applications/CMake.app/Contents/pkgconf"
+      - "/usr/X11R6/bin/pkg-config"
+      - "/usr/X11R6/bin/pkgconf"
+      - "/usr/X11R6/sbin/pkg-config"
+      - "/usr/X11R6/sbin/pkgconf"
+      - "/usr/X11R6/pkg-config"
+      - "/usr/X11R6/pkgconf"
+      - "/usr/pkg/bin/pkg-config"
+      - "/usr/pkg/bin/pkgconf"
+      - "/usr/pkg/sbin/pkg-config"
+      - "/usr/pkg/sbin/pkgconf"
+      - "/usr/pkg/pkg-config"
+      - "/usr/pkg/pkgconf"
+      - "/opt/bin/pkg-config"
+      - "/opt/bin/pkgconf"
+      - "/opt/sbin/pkg-config"
+      - "/opt/sbin/pkgconf"
+      - "/opt/pkg-config"
+      - "/opt/pkgconf"
+      - "/sw/bin/pkg-config"
+      - "/sw/bin/pkgconf"
+      - "/sw/sbin/pkg-config"
+      - "/sw/sbin/pkgconf"
+      - "/sw/pkg-config"
+      - "/sw/pkgconf"
+      - "/opt/local/bin/pkg-config"
+      - "/opt/local/bin/pkgconf"
+      - "/opt/local/sbin/pkg-config"
+      - "/opt/local/sbin/pkgconf"
+      - "/opt/local/pkg-config"
+      - "/opt/local/pkgconf"
+      - "/Users/milesoop/Applications/pkg-config"
+      - "/Users/milesoop/Applications/pkgconf"
+      - "/Applications/pkg-config"
+      - "/Applications/pkgconf"
+    found: false
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1421,18 +1455,15 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr"
         - "/opt/homebrew"
         - "/usr/local"
         - "/usr"
         - "/"
-        - "/opt/homebrew"
+        - "/Applications/CMake.app/Contents"
         - "/usr/local"
         - "/usr/X11R6"
         - "/usr/pkg"
@@ -1440,159 +1471,13 @@ events:
         - "/sw"
         - "/opt/local"
       CMAKE_SYSTEM_APPBUNDLE_PATH:
-        - "/Users/ethanterrero/Applications"
+        - "/Users/milesoop/Applications"
         - "/Applications"
-        - "/Applications/Xcode.app/Contents/Applications"
-        - "/Applications/Xcode.app/Contents/Developer/Applications"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:761 (find_library)"
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:811 (_pkg_find_libs)"
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:1149 (_pkg_recalculate)"
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:1166 (_pkg_check_modules_internal)"
-      - "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake:297 (pkg_check_modules)"
-      - "CMakeLists.txt:8 (find_package)"
-    mode: "library"
-    variable: "pkgcfg_lib__OPENSSL_ssl"
-    description: "Path to a library."
-    settings:
-      SearchFramework: "FIRST"
-      SearchAppBundle: "FIRST"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "ssl"
-    candidate_directories:
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/"
-    found: "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/libssl.dylib"
-    search_context:
-      ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/opt/homebrew/bin"
-        - "/opt/homebrew/sbin"
-        - "/usr/local/bin"
-        - "/System/Cryptexes/App/usr/bin"
-        - "/usr/bin"
-        - "/bin"
-        - "/usr/sbin"
-        - "/sbin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
-        - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
-      CMAKE_INSTALL_PREFIX: "/usr/local"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr"
-        - "/"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr/X11R6"
-        - "/usr/pkg"
-        - "/opt"
-        - "/sw"
-        - "/opt/local"
-      CMAKE_SYSTEM_LIBRARY_PATH:
-        - "/usr/lib/X11"
-      CMAKE_SYSTEM_FRAMEWORK_PATH:
-        - "~/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks"
-        - "/Library/Frameworks"
-        - "/Network/Library/Frameworks"
-        - "/System/Library/Frameworks"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:761 (find_library)"
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:811 (_pkg_find_libs)"
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:1149 (_pkg_recalculate)"
-      - "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake:1166 (_pkg_check_modules_internal)"
-      - "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake:297 (pkg_check_modules)"
-      - "CMakeLists.txt:8 (find_package)"
-    mode: "library"
-    variable: "pkgcfg_lib__OPENSSL_crypto"
-    description: "Path to a library."
-    settings:
-      SearchFramework: "FIRST"
-      SearchAppBundle: "FIRST"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "crypto"
-    candidate_directories:
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/"
-    found: "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/libcrypto.dylib"
-    search_context:
-      ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/opt/homebrew/bin"
-        - "/opt/homebrew/sbin"
-        - "/usr/local/bin"
-        - "/System/Cryptexes/App/usr/bin"
-        - "/usr/bin"
-        - "/bin"
-        - "/usr/sbin"
-        - "/sbin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
-        - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
-      CMAKE_INSTALL_PREFIX: "/usr/local"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr"
-        - "/"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr/X11R6"
-        - "/usr/pkg"
-        - "/opt"
-        - "/sw"
-        - "/opt/local"
-      CMAKE_SYSTEM_LIBRARY_PATH:
-        - "/usr/lib/X11"
-      CMAKE_SYSTEM_FRAMEWORK_PATH:
-        - "~/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks"
-        - "/Library/Frameworks"
-        - "/Network/Library/Frameworks"
-        - "/System/Library/Frameworks"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake:370 (find_path)"
-      - "CMakeLists.txt:8 (find_package)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/FindOpenSSL.cmake:370 (find_path)"
+      - "CMakeLists.txt:18 (find_package)"
     mode: "path"
     variable: "OPENSSL_INCLUDE_DIR"
     description: "Path to a file."
@@ -1607,198 +1492,17 @@ events:
     names:
       - "openssl/ssl.h"
     candidate_directories:
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/include/include/"
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/include/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/include/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/include/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/include/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
-      - "/opt/homebrew/bin/include/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/include/"
-      - "/opt/homebrew/sbin/"
-      - "/usr/local/bin/include/"
-      - "/usr/local/bin/"
-      - "/System/Cryptexes/App/usr/bin/include/"
-      - "/System/Cryptexes/App/usr/bin/"
-      - "/usr/bin/include/"
-      - "/usr/bin/"
-      - "/bin/include/"
-      - "/bin/"
-      - "/usr/sbin/include/"
-      - "/usr/sbin/"
-      - "/sbin/include/"
-      - "/sbin/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/include/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/include/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/include/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
-      - "/Library/Apple/usr/bin/include/"
-      - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/include/"
-      - "/Users/ethanterrero/.cargo/bin/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/"
-      - "/opt/homebrew/include/include/"
-      - "/opt/homebrew/include/"
-      - "/opt/homebrew/include/"
-      - "/opt/homebrew/"
-      - "/usr/local/include/include/"
-      - "/usr/local/include/"
-      - "/usr/local/include/"
-      - "/usr/local/"
-      - "/usr/include/include/"
-      - "/usr/include/"
-      - "/usr/include/"
-      - "/usr/"
-      - "/include/include/"
-      - "/include/"
-      - "/usr/X11R6/include/include/"
-      - "/usr/X11R6/include/"
-      - "/usr/X11R6/include/"
-      - "/usr/X11R6/"
-      - "/usr/pkg/include/include/"
-      - "/usr/pkg/include/"
-      - "/usr/pkg/include/"
-      - "/usr/pkg/"
-      - "/opt/include/include/"
-      - "/opt/include/"
-      - "/opt/include/"
-      - "/opt/"
-      - "/sw/include/include/"
-      - "/sw/include/"
-      - "/sw/include/"
-      - "/sw/"
-      - "/opt/local/include/include/"
-      - "/opt/local/include/"
-      - "/opt/local/include/"
-      - "/opt/local/"
-      - "/usr/include/X11/include/"
-      - "/usr/include/X11/"
-      - "/Users/ethanterrero/Library/Frameworks/include/"
-      - "/Users/ethanterrero/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/include/"
-      - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/"
-      - "/Library/Frameworks/include/"
-      - "/Library/Frameworks/"
-      - "/Network/Library/Frameworks/include/"
-      - "/Network/Library/Frameworks/"
-      - "/System/Library/Frameworks/include/"
-      - "/System/Library/Frameworks/"
+      - "/opt/homebrew/opt/openssl@3/include/"
+      - "/opt/homebrew/opt/openssl@3/"
     searched_directories:
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/include/include/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/include/openssl.framework/Headers/ssl.h"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/include/openssl.framework/Headers/ssl.h"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/openssl.framework/Headers/ssl.h"
-      - "/usr/local/smlnj/bin/include/openssl.framework/Headers/ssl.h"
-      - "/usr/local/smlnj/bin/openssl.framework/Headers/ssl.h"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/include/openssl.framework/Headers/ssl.h"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/bin/include/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/bin/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/sbin/include/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/sbin/openssl.framework/Headers/ssl.h"
-      - "/usr/local/bin/include/openssl.framework/Headers/ssl.h"
-      - "/usr/local/bin/openssl.framework/Headers/ssl.h"
-      - "/System/Cryptexes/App/usr/bin/include/openssl.framework/Headers/ssl.h"
-      - "/System/Cryptexes/App/usr/bin/openssl.framework/Headers/ssl.h"
-      - "/usr/bin/include/openssl.framework/Headers/ssl.h"
-      - "/usr/bin/openssl.framework/Headers/ssl.h"
-      - "/bin/include/openssl.framework/Headers/ssl.h"
-      - "/bin/openssl.framework/Headers/ssl.h"
-      - "/usr/sbin/include/openssl.framework/Headers/ssl.h"
-      - "/usr/sbin/openssl.framework/Headers/ssl.h"
-      - "/sbin/include/openssl.framework/Headers/ssl.h"
-      - "/sbin/openssl.framework/Headers/ssl.h"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/include/openssl.framework/Headers/ssl.h"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/openssl.framework/Headers/ssl.h"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/include/openssl.framework/Headers/ssl.h"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/openssl.framework/Headers/ssl.h"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/include/openssl.framework/Headers/ssl.h"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/openssl.framework/Headers/ssl.h"
-      - "/Library/Apple/usr/bin/include/openssl.framework/Headers/ssl.h"
-      - "/Library/Apple/usr/bin/openssl.framework/Headers/ssl.h"
-      - "/Users/ethanterrero/.cargo/bin/include/openssl.framework/Headers/ssl.h"
-      - "/Users/ethanterrero/.cargo/bin/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/include/include/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/include/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/include/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/openssl.framework/Headers/ssl.h"
-      - "/usr/local/include/include/openssl.framework/Headers/ssl.h"
-      - "/usr/local/include/openssl.framework/Headers/ssl.h"
-      - "/usr/local/include/openssl.framework/Headers/ssl.h"
-      - "/usr/local/openssl.framework/Headers/ssl.h"
-      - "/usr/include/include/openssl.framework/Headers/ssl.h"
-      - "/usr/include/openssl.framework/Headers/ssl.h"
-      - "/usr/include/openssl.framework/Headers/ssl.h"
-      - "/usr/openssl.framework/Headers/ssl.h"
-      - "/include/include/openssl.framework/Headers/ssl.h"
-      - "/include/openssl.framework/Headers/ssl.h"
-      - "/usr/X11R6/include/include/openssl.framework/Headers/ssl.h"
-      - "/usr/X11R6/include/openssl.framework/Headers/ssl.h"
-      - "/usr/X11R6/include/openssl.framework/Headers/ssl.h"
-      - "/usr/X11R6/openssl.framework/Headers/ssl.h"
-      - "/usr/pkg/include/include/openssl.framework/Headers/ssl.h"
-      - "/usr/pkg/include/openssl.framework/Headers/ssl.h"
-      - "/usr/pkg/include/openssl.framework/Headers/ssl.h"
-      - "/usr/pkg/openssl.framework/Headers/ssl.h"
-      - "/opt/include/include/openssl.framework/Headers/ssl.h"
-      - "/opt/include/openssl.framework/Headers/ssl.h"
-      - "/opt/include/openssl.framework/Headers/ssl.h"
-      - "/opt/openssl.framework/Headers/ssl.h"
-      - "/sw/include/include/openssl.framework/Headers/ssl.h"
-      - "/sw/include/openssl.framework/Headers/ssl.h"
-      - "/sw/include/openssl.framework/Headers/ssl.h"
-      - "/sw/openssl.framework/Headers/ssl.h"
-      - "/opt/local/include/include/openssl.framework/Headers/ssl.h"
-      - "/opt/local/include/openssl.framework/Headers/ssl.h"
-      - "/opt/local/include/openssl.framework/Headers/ssl.h"
-      - "/opt/local/openssl.framework/Headers/ssl.h"
-      - "/usr/include/X11/include/openssl.framework/Headers/ssl.h"
-      - "/usr/include/X11/openssl.framework/Headers/ssl.h"
-      - "/Users/ethanterrero/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Users/ethanterrero/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/Network/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/Network/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/System/Library/Frameworks/include/openssl.framework/Headers/ssl.h"
-      - "/System/Library/Frameworks/openssl.framework/Headers/ssl.h"
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/include/include/openssl/ssl.h"
-    found: "/opt/homebrew/Cellar/openssl@3/3.6.1/include/"
+      - "/opt/homebrew/opt/openssl@3/include/openssl.framework/Headers/ssl.h"
+      - "/opt/homebrew/opt/openssl@3/openssl.framework/Headers/ssl.h"
+    found: "/opt/homebrew/opt/openssl@3/include/"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1811,18 +1515,15 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr"
         - "/opt/homebrew"
         - "/usr/local"
         - "/usr"
         - "/"
-        - "/opt/homebrew"
+        - "/Applications/CMake.app/Contents"
         - "/usr/local"
         - "/usr/X11R6"
         - "/usr/pkg"
@@ -1833,19 +1534,19 @@ events:
         - "/usr/include/X11"
       CMAKE_SYSTEM_FRAMEWORK_PATH:
         - "~/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Network/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
         - "/Library/Frameworks"
         - "/Network/Library/Frameworks"
         - "/System/Library/Frameworks"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake:628 (find_library)"
-      - "CMakeLists.txt:8 (find_package)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/FindOpenSSL.cmake:628 (find_library)"
+      - "CMakeLists.txt:18 (find_package)"
     mode: "library"
     variable: "OPENSSL_SSL_LIBRARY"
     description: "Path to a library."
@@ -1862,42 +1563,14 @@ events:
       - "ssleay32"
       - "ssleay32MD"
     candidate_directories:
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/usr/local/bin/"
-      - "/System/Cryptexes/App/usr/bin/"
-      - "/usr/bin/"
-      - "/bin/"
-      - "/usr/sbin/"
-      - "/sbin/"
-      - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/"
-      - "/opt/homebrew/lib/"
-      - "/opt/homebrew/lib/"
-      - "/opt/homebrew/"
-      - "/usr/local/"
-      - "/usr/lib/"
-      - "/usr/lib/"
-      - "/usr/"
-      - "/opt/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/"
-      - "/Library/Frameworks/"
-      - "/System/Library/Frameworks/"
-    found: "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/libssl.dylib"
+      - "/opt/homebrew/opt/openssl@3/lib/"
+      - "/opt/homebrew/opt/openssl@3/"
+    found: "/opt/homebrew/opt/openssl@3/lib/libssl.dylib"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1910,18 +1583,15 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr"
         - "/opt/homebrew"
         - "/usr/local"
         - "/usr"
         - "/"
-        - "/opt/homebrew"
+        - "/Applications/CMake.app/Contents"
         - "/usr/local"
         - "/usr/X11R6"
         - "/usr/pkg"
@@ -1932,19 +1602,19 @@ events:
         - "/usr/lib/X11"
       CMAKE_SYSTEM_FRAMEWORK_PATH:
         - "~/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Network/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
         - "/Library/Frameworks"
         - "/Network/Library/Frameworks"
         - "/System/Library/Frameworks"
   -
     kind: "find-v1"
     backtrace:
-      - "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake:642 (find_library)"
-      - "CMakeLists.txt:8 (find_package)"
+      - "/Applications/CMake.app/Contents/share/cmake-4.2/Modules/FindOpenSSL.cmake:642 (find_library)"
+      - "CMakeLists.txt:18 (find_package)"
     mode: "library"
     variable: "OPENSSL_CRYPTO_LIBRARY"
     description: "Path to a library."
@@ -1959,42 +1629,14 @@ events:
     names:
       - "crypto"
     candidate_directories:
-      - "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/"
-      - "/Users/ethanterrero/.antigravity/antigravity/bin/"
-      - "/usr/local/smlnj/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/usr/local/bin/"
-      - "/System/Cryptexes/App/usr/bin/"
-      - "/usr/bin/"
-      - "/bin/"
-      - "/usr/sbin/"
-      - "/sbin/"
-      - "/Library/Apple/usr/bin/"
-      - "/Users/ethanterrero/.cargo/bin/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/"
-      - "/opt/homebrew/lib/"
-      - "/opt/homebrew/lib/"
-      - "/opt/homebrew/"
-      - "/usr/local/"
-      - "/usr/lib/"
-      - "/usr/lib/"
-      - "/usr/"
-      - "/opt/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/"
-      - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/"
-      - "/Library/Frameworks/"
-      - "/System/Library/Frameworks/"
-    found: "/opt/homebrew/Cellar/openssl@3/3.6.1/lib/libcrypto.dylib"
+      - "/opt/homebrew/opt/openssl@3/lib/"
+      - "/opt/homebrew/opt/openssl@3/"
+    found: "/opt/homebrew/opt/openssl@3/lib/libcrypto.dylib"
     search_context:
       ENV{PATH}:
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/opt/openjdk/bin"
+        - "/Users/milesoop/anaconda3/bin"
+        - "/Users/milesoop/anaconda3/condabin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -2007,18 +1649,15 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/ethanterrero/.antigravity/antigravity/bin"
-        - "/usr/local/smlnj/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
-        - "/Users/ethanterrero/.cargo/bin"
+        - "/Users/milesoop/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/usr"
         - "/opt/homebrew"
         - "/usr/local"
         - "/usr"
         - "/"
-        - "/opt/homebrew"
+        - "/Applications/CMake.app/Contents"
         - "/usr/local"
         - "/usr/X11R6"
         - "/usr/pkg"
@@ -2029,11 +1668,11 @@ events:
         - "/usr/lib/X11"
       CMAKE_SYSTEM_FRAMEWORK_PATH:
         - "~/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Network/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks"
-        - "/Applications/Xcode.app/Contents/Developer/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/Network/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
         - "/Library/Frameworks"
         - "/Network/Library/Frameworks"
         - "/System/Library/Frameworks"
