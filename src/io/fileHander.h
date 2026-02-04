@@ -53,8 +53,6 @@ private:
     std::vector<unsigned char> internalBuffer; // our buffer for reading in chunks 
 }; 
 
-// --- Implementation ---
-
 std::uintmax_t f_Handler::getFileSize() const {
     return this->f_summary.fileSize; 
 }
