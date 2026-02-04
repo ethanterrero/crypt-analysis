@@ -11,10 +11,10 @@ std::vector<uint8_t> FileHandler::read_file(const std::string &path) {
   }
 
   // Get size and allocate buffer
-  std::streamsize size = file.tellg();
+  std::streamsize size = file.tellg(); // returns size of the whole file
   file.seekg(0, std::ios::beg);
 
-  std::vector<uint8_t> buffer(size);
+  std::vector<uint8_t> buffer(size); // Issue here is were allocating a vector that is the size of the ENTIRE file
   if (file.read(reinterpret_cast<char *>(buffer.data()), size)) {
     return buffer;
   }
