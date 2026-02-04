@@ -100,14 +100,15 @@ int main(int argc, char *argv[]) {
   }
 
   // Dispatcher
- std::unique_ptr<Encryptor> encryptor;
+std::unique_ptr<Encryptor> encryptor;
 
   if (config.algorithm == "aes256") {
-    // AES Encryption
     encryptor = std::make_unique<AesCipher>();
   } 
+  else if (config.algorithm == "chacha20") {
+    encryptor = std::make_unique<ChaChaCipher>();
+  }
   else if (config.algorithm == "mock") {
-    // TESTING ONLY
     encryptor = std::make_unique<MockEncryptor>();
   } 
   else {

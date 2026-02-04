@@ -22,10 +22,10 @@ include_directories(${OPENSSL_INCLUDE_DIR})
 include_directories(src) # Add src to path so we can include headers easily
 
 # Define the executable
-# CRITICAL: We added aes_cipher.cpp here!
 add_executable(file-crypto
     src/main.cpp
     src/crypto/aes_cipher.cpp
+    src/crypto/chacha_cipher.cpp
     src/io/file_handler.cpp
 )
 

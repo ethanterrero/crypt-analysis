@@ -163,6 +163,30 @@ src/crypto/aes_cipher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.s
 .PHONY : src/crypto/aes_cipher.cpp.s
 
+src/crypto/chacha_cipher.o: src/crypto/chacha_cipher.cpp.o
+.PHONY : src/crypto/chacha_cipher.o
+
+# target to build an object file
+src/crypto/chacha_cipher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o
+.PHONY : src/crypto/chacha_cipher.cpp.o
+
+src/crypto/chacha_cipher.i: src/crypto/chacha_cipher.cpp.i
+.PHONY : src/crypto/chacha_cipher.i
+
+# target to preprocess a source file
+src/crypto/chacha_cipher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.i
+.PHONY : src/crypto/chacha_cipher.cpp.i
+
+src/crypto/chacha_cipher.s: src/crypto/chacha_cipher.cpp.s
+.PHONY : src/crypto/chacha_cipher.s
+
+# target to generate assembly for a file
+src/crypto/chacha_cipher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.s
+.PHONY : src/crypto/chacha_cipher.cpp.s
+
 src/io/file_handler.o: src/io/file_handler.cpp.o
 .PHONY : src/io/file_handler.o
 
@@ -224,6 +248,9 @@ help:
 	@echo "... src/crypto/aes_cipher.o"
 	@echo "... src/crypto/aes_cipher.i"
 	@echo "... src/crypto/aes_cipher.s"
+	@echo "... src/crypto/chacha_cipher.o"
+	@echo "... src/crypto/chacha_cipher.i"
+	@echo "... src/crypto/chacha_cipher.s"
 	@echo "... src/io/file_handler.o"
 	@echo "... src/io/file_handler.i"
 	@echo "... src/io/file_handler.s"

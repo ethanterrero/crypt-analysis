@@ -85,12 +85,12 @@ clean: CMakeFiles/file-crypto.dir/clean
 CMakeFiles/file-crypto.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=1,2,3,4 "Built target file-crypto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target file-crypto"
 .PHONY : CMakeFiles/file-crypto.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/file-crypto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/file-crypto.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles 0
 .PHONY : CMakeFiles/file-crypto.dir/rule
@@ -102,7 +102,7 @@ file-crypto: CMakeFiles/file-crypto.dir/rule
 # codegen rule for target.
 CMakeFiles/file-crypto.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target file-crypto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target file-crypto"
 .PHONY : CMakeFiles/file-crypto.dir/codegen
 
 # clean rule for target.

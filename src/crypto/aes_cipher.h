@@ -26,7 +26,7 @@ private:
     static const int IV_SIZE = 16;  // 128 bits 
     static const int SALT_SIZE = 8; 
 
-
+    //helper function
     void deriveKeyAndIV(const std::string &phrase, 
                         const unsigned char *salt, 
                         unsigned char *key, 
