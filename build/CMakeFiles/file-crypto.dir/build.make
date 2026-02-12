@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/bin/cmake
+CMAKE_COMMAND = /Applications/CMake.app/Contents/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/bin/cmake -E rm -f
+RM = /Applications/CMake.app/Contents/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/ethanterrero/Desktop/crypt-analysis
+CMAKE_SOURCE_DIR = /Users/milesoop/Desktop/443project/crypt-analysis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/ethanterrero/Desktop/crypt-analysis/build
+CMAKE_BINARY_DIR = /Users/milesoop/Desktop/443project/crypt-analysis/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/file-crypto.dir/depend.make
@@ -73,31 +73,79 @@ CMakeFiles/file-crypto.dir/codegen:
 .PHONY : CMakeFiles/file-crypto.dir/codegen
 
 CMakeFiles/file-crypto.dir/src/main.cpp.o: CMakeFiles/file-crypto.dir/flags.make
-CMakeFiles/file-crypto.dir/src/main.cpp.o: /Users/ethanterrero/Desktop/crypt-analysis/src/main.cpp
+CMakeFiles/file-crypto.dir/src/main.cpp.o: /Users/milesoop/Desktop/443project/crypt-analysis/src/main.cpp
 CMakeFiles/file-crypto.dir/src/main.cpp.o: CMakeFiles/file-crypto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/file-crypto.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/file-crypto.dir/src/main.cpp.o -MF CMakeFiles/file-crypto.dir/src/main.cpp.o.d -o CMakeFiles/file-crypto.dir/src/main.cpp.o -c /Users/ethanterrero/Desktop/crypt-analysis/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/file-crypto.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/file-crypto.dir/src/main.cpp.o -MF CMakeFiles/file-crypto.dir/src/main.cpp.o.d -o CMakeFiles/file-crypto.dir/src/main.cpp.o -c /Users/milesoop/Desktop/443project/crypt-analysis/src/main.cpp
 
 CMakeFiles/file-crypto.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/file-crypto.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ethanterrero/Desktop/crypt-analysis/src/main.cpp > CMakeFiles/file-crypto.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/milesoop/Desktop/443project/crypt-analysis/src/main.cpp > CMakeFiles/file-crypto.dir/src/main.cpp.i
 
 CMakeFiles/file-crypto.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/file-crypto.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ethanterrero/Desktop/crypt-analysis/src/main.cpp -o CMakeFiles/file-crypto.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/milesoop/Desktop/443project/crypt-analysis/src/main.cpp -o CMakeFiles/file-crypto.dir/src/main.cpp.s
+
+CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o: CMakeFiles/file-crypto.dir/flags.make
+CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o: /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/aes_cipher.cpp
+CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o: CMakeFiles/file-crypto.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o -MF CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o.d -o CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o -c /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/aes_cipher.cpp
+
+CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/aes_cipher.cpp > CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.i
+
+CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/aes_cipher.cpp -o CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.s
+
+CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o: CMakeFiles/file-crypto.dir/flags.make
+CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o: /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/chacha_cipher.cpp
+CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o: CMakeFiles/file-crypto.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o -MF CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o.d -o CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o -c /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/chacha_cipher.cpp
+
+CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/chacha_cipher.cpp > CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.i
+
+CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/milesoop/Desktop/443project/crypt-analysis/src/crypto/chacha_cipher.cpp -o CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.s
+
+CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o: CMakeFiles/file-crypto.dir/flags.make
+CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o: /Users/milesoop/Desktop/443project/crypt-analysis/src/io/file_handler.cpp
+CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o: CMakeFiles/file-crypto.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o -MF CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o.d -o CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o -c /Users/milesoop/Desktop/443project/crypt-analysis/src/io/file_handler.cpp
+
+CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/milesoop/Desktop/443project/crypt-analysis/src/io/file_handler.cpp > CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.i
+
+CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/milesoop/Desktop/443project/crypt-analysis/src/io/file_handler.cpp -o CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.s
 
 # Object files for target file-crypto
 file__crypto_OBJECTS = \
-"CMakeFiles/file-crypto.dir/src/main.cpp.o"
+"CMakeFiles/file-crypto.dir/src/main.cpp.o" \
+"CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o" \
+"CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o" \
+"CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o"
 
 # External object files for target file-crypto
 file__crypto_EXTERNAL_OBJECTS =
 
 file-crypto: CMakeFiles/file-crypto.dir/src/main.cpp.o
+file-crypto: CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o
+file-crypto: CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o
+file-crypto: CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o
 file-crypto: CMakeFiles/file-crypto.dir/build.make
-file-crypto: /opt/homebrew/Cellar/openssl@3/3.6.1/lib/libcrypto.dylib
+file-crypto: /opt/homebrew/opt/openssl@3/lib/libcrypto.dylib
 file-crypto: CMakeFiles/file-crypto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable file-crypto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable file-crypto"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/file-crypto.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -109,6 +157,6 @@ CMakeFiles/file-crypto.dir/clean:
 .PHONY : CMakeFiles/file-crypto.dir/clean
 
 CMakeFiles/file-crypto.dir/depend:
-	cd /Users/ethanterrero/Desktop/crypt-analysis/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/ethanterrero/Desktop/crypt-analysis /Users/ethanterrero/Desktop/crypt-analysis /Users/ethanterrero/Desktop/crypt-analysis/build /Users/ethanterrero/Desktop/crypt-analysis/build /Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles/file-crypto.dir/DependInfo.cmake "--color=$(COLOR)" file-crypto
+	cd /Users/milesoop/Desktop/443project/crypt-analysis/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/milesoop/Desktop/443project/crypt-analysis /Users/milesoop/Desktop/443project/crypt-analysis /Users/milesoop/Desktop/443project/crypt-analysis/build /Users/milesoop/Desktop/443project/crypt-analysis/build /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles/file-crypto.dir/DependInfo.cmake "--color=$(COLOR)" file-crypto
 .PHONY : CMakeFiles/file-crypto.dir/depend
 

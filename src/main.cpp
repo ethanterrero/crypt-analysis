@@ -1,5 +1,7 @@
 #include "crypto/encryptor.h"
 #include "io/file_handler.h"
+#include "crypto/chacha_cipher.h"
+#include "crypto/aes_cipher.h"
 #include <cstring>
 #include <iostream>
 #include <memory>
@@ -98,15 +100,20 @@ int main(int argc, char *argv[]) {
   }
 
   // Dispatcher
-  std::unique_ptr<Encryptor> encryptor;
+std::unique_ptr<Encryptor> encryptor;
 
-  // TODO: Instantiate real encryptors here
-  if (config.algorithm == "mock") {
+  if (config.algorithm == "aes256") {
+    encryptor = std::make_unique<AesCipher>();
+  } 
+  else if (config.algorithm == "chacha20") {
+    encryptor = std::make_unique<ChaChaCipher>();
+  }
+  else if (config.algorithm == "mock") {
     encryptor = std::make_unique<MockEncryptor>();
-  } else {
-    std::cout << "Warning: Algorithm '" << config.algorithm
-              << "' not implemented yet. Using MockEncryptor.\n";
-    encryptor = std::make_unique<MockEncryptor>();
+  } 
+  else {
+    std::cerr << "Error: Unknown algorithm '" << config.algorithm << "'.\n";
+    return 1;
   }
 
   try {

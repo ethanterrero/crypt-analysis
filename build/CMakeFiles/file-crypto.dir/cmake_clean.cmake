@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o"
+  "CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o.d"
+  "CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o"
+  "CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o.d"
+  "CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o"
+  "CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o.d"
   "CMakeFiles/file-crypto.dir/src/main.cpp.o"
   "CMakeFiles/file-crypto.dir/src/main.cpp.o.d"
   "file-crypto"
