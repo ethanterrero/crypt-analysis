@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/bin/cmake
+CMAKE_COMMAND = /Applications/CMake.app/Contents/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/bin/cmake -E rm -f
+RM = /Applications/CMake.app/Contents/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/ethanterrero/Desktop/crypt-analysis
+CMAKE_SOURCE_DIR = /Users/milesoop/Desktop/443project/crypt-analysis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/ethanterrero/Desktop/crypt-analysis/build
+CMAKE_BINARY_DIR = /Users/milesoop/Desktop/443project/crypt-analysis/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/ethanterrero/Desktop/crypt-analysis/build
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
-	/opt/homebrew/bin/ctest $(ARGS)
+	/Applications/CMake.app/Contents/bin/ctest $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -78,7 +78,7 @@ test/fast: test
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/opt/homebrew/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CMake.app/Contents/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -88,7 +88,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles /Users/ethanterrero/Desktop/crypt-analysis/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles /Users/milesoop/Desktop/443project/crypt-analysis/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ethanterrero/Desktop/crypt-analysis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -139,6 +139,78 @@ file-crypto/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/build
 .PHONY : file-crypto/fast
 
+src/crypto/aes_cipher.o: src/crypto/aes_cipher.cpp.o
+.PHONY : src/crypto/aes_cipher.o
+
+# target to build an object file
+src/crypto/aes_cipher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o
+.PHONY : src/crypto/aes_cipher.cpp.o
+
+src/crypto/aes_cipher.i: src/crypto/aes_cipher.cpp.i
+.PHONY : src/crypto/aes_cipher.i
+
+# target to preprocess a source file
+src/crypto/aes_cipher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.i
+.PHONY : src/crypto/aes_cipher.cpp.i
+
+src/crypto/aes_cipher.s: src/crypto/aes_cipher.cpp.s
+.PHONY : src/crypto/aes_cipher.s
+
+# target to generate assembly for a file
+src/crypto/aes_cipher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.s
+.PHONY : src/crypto/aes_cipher.cpp.s
+
+src/crypto/chacha_cipher.o: src/crypto/chacha_cipher.cpp.o
+.PHONY : src/crypto/chacha_cipher.o
+
+# target to build an object file
+src/crypto/chacha_cipher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o
+.PHONY : src/crypto/chacha_cipher.cpp.o
+
+src/crypto/chacha_cipher.i: src/crypto/chacha_cipher.cpp.i
+.PHONY : src/crypto/chacha_cipher.i
+
+# target to preprocess a source file
+src/crypto/chacha_cipher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.i
+.PHONY : src/crypto/chacha_cipher.cpp.i
+
+src/crypto/chacha_cipher.s: src/crypto/chacha_cipher.cpp.s
+.PHONY : src/crypto/chacha_cipher.s
+
+# target to generate assembly for a file
+src/crypto/chacha_cipher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.s
+.PHONY : src/crypto/chacha_cipher.cpp.s
+
+src/io/file_handler.o: src/io/file_handler.cpp.o
+.PHONY : src/io/file_handler.o
+
+# target to build an object file
+src/io/file_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o
+.PHONY : src/io/file_handler.cpp.o
+
+src/io/file_handler.i: src/io/file_handler.cpp.i
+.PHONY : src/io/file_handler.i
+
+# target to preprocess a source file
+src/io/file_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.i
+.PHONY : src/io/file_handler.cpp.i
+
+src/io/file_handler.s: src/io/file_handler.cpp.s
+.PHONY : src/io/file_handler.s
+
+# target to generate assembly for a file
+src/io/file_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.s
+.PHONY : src/io/file_handler.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -173,6 +245,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... file-crypto"
+	@echo "... src/crypto/aes_cipher.o"
+	@echo "... src/crypto/aes_cipher.i"
+	@echo "... src/crypto/aes_cipher.s"
+	@echo "... src/crypto/chacha_cipher.o"
+	@echo "... src/crypto/chacha_cipher.i"
+	@echo "... src/crypto/chacha_cipher.s"
+	@echo "... src/io/file_handler.o"
+	@echo "... src/io/file_handler.i"
+	@echo "... src/io/file_handler.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
