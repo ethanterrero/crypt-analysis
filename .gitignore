@@ -27,3 +27,7 @@ CTestTestfile.cmake
 # Test output
 *.enc
 *.dec
+*.hash
+
+# Cache
+.cache/

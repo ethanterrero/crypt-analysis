@@ -8,28 +8,6 @@
 #include <string>
 #include <vector>
 
-// Mock Encryptor for testing infrastructure
-class MockEncryptor : public Encryptor {
-public:
-  bool encrypt(const std::vector<uint8_t> &input, const std::string &key,
-               std::vector<uint8_t> &output) override {
-    // Just copy input to output and append 0xFF to simulate "encryption"
-    output = input;
-    output.push_back(0xFF);
-    return true;
-  }
-
-  bool decrypt(const std::vector<uint8_t> &input, const std::string &key,
-               std::vector<uint8_t> &output) override {
-    // Remove the last byte
-    if (input.empty())
-      return false;
-    output = input;
-    output.pop_back();
-    return true;
-  }
-};
-
 enum class Operation { NONE, ENCRYPT, DECRYPT, BENCHMARK, VERIFY };
 
 struct Config {
@@ -108,9 +86,6 @@ std::unique_ptr<Encryptor> encryptor;
   else if (config.algorithm == "chacha20") {
     encryptor = std::make_unique<ChaChaCipher>();
   }
-  else if (config.algorithm == "mock") {
-    encryptor = std::make_unique<MockEncryptor>();
-  } 
   else {
     std::cerr << "Error: Unknown algorithm '" << config.algorithm << "'.\n";
     return 1;

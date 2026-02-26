@@ -21,9 +21,8 @@ find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
 include_directories(src) # Add src to path so we can include headers easily
 
-# Define the executable
-add_executable(file-crypto
-    src/main.cpp
+# --- Shared library of crypto/io/utils sources (used by main and tests) ---
+set(LIB_SOURCES
     src/crypto/aes_cipher.cpp
     src/crypto/chacha_cipher.cpp
     src/crypto/key_derivation.cpp
@@ -33,10 +32,38 @@ add_executable(file-crypto
     src/benchmark/profiler.cpp
 )
 
+# Define the executable
+add_executable(file-crypto
+    src/main.cpp
+    ${LIB_SOURCES}
+)
+
 # Link against OpenSSL
 target_link_libraries(file-crypto
     OpenSSL::Crypto
 )
 
-# Enable testing
+# ---- Testing with Google Test ----
 enable_testing()
+
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+# Prevent GoogleTest from overriding compiler/linker settings on Windows
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+add_executable(run_tests
+    tests/test_encryption.cpp
+    ${LIB_SOURCES}
+)
+
+target_link_libraries(run_tests
+    GTest::gtest_main
+    OpenSSL::Crypto
+)
+
+include(GoogleTest)
+gtest_discover_tests(run_tests)
