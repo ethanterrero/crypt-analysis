@@ -2,7 +2,9 @@
 #include "io/file_handler.h"
 #include "crypto/chacha_cipher.h"
 #include "crypto/aes_cipher.h"
+#include "utils/hash.h"
 #include <cstring>
+#include <fstream>
 #include <iostream>
 #include <memory>
 #include <string>
@@ -17,27 +19,30 @@ struct Config {
   std::string mode = "cbc";
   std::string password;
   Operation op = Operation::NONE;
+  bool verify = false; // --verify flag for encrypt
 };
 
 void print_help() {
   std::cout << "Usage: file-crypto [command] [options]\n"
             << "Commands:\n"
-            << "  encrypt  Encrypt a file\n"
-            << "  decrypt  Decrypt a file\n"
+            << "  encrypt   Encrypt a file\n"
+            << "  decrypt   Decrypt a file\n"
+            << "  verify    Verify file integrity using .hash sidecar\n"
             << "Options:\n"
             << "  -i, --input <file>     Input file path\n"
             << "  -o, --output <file>    Output file path\n"
             << "  -p, --password <pass>  Encryption password\n"
             << "  -a, --algorithm <name> Algorithm (aes256, chacha20). "
                "Default: aes256\n"
-            << "  -m, --mode <name>      Mode (cbc, ecb). Default: cbc\n"
+            << "  -m, --mode <name>      Mode (cbc, ecb, gcm). Default: cbc\n"
+            << "  --verify               Generate .hash sidecar on encrypt\n"
             << "  -h, --help             Show this help message\n";
 }
 
 int main(int argc, char *argv[]) {
   Config config;
 
-  // Basic argument parsing
+  // Argument parsing
   for (int i = 1; i < argc; ++i) {
     std::string arg = argv[i];
 
@@ -45,6 +50,8 @@ int main(int argc, char *argv[]) {
       config.op = Operation::ENCRYPT;
     } else if (arg == "decrypt") {
       config.op = Operation::DECRYPT;
+    } else if (arg == "verify") {
+      config.op = Operation::VERIFY;
     } else if (arg == "-i" || arg == "--input") {
       if (i + 1 < argc)
         config.inputFile = argv[++i];
@@ -60,6 +67,8 @@ int main(int argc, char *argv[]) {
     } else if (arg == "-m" || arg == "--mode") {
       if (i + 1 < argc)
         config.mode = argv[++i];
+    } else if (arg == "--verify") {
+      config.verify = true;
     } else if (arg == "-h" || arg == "--help") {
       print_help();
       return 0;
@@ -67,26 +76,63 @@ int main(int argc, char *argv[]) {
   }
 
   if (config.op == Operation::NONE) {
-    std::cerr << "Error: No command specified (encrypt/decrypt).\n";
+    std::cerr << "Error: No command specified (encrypt/decrypt/verify).\n";
     print_help();
     return 1;
   }
 
+  // --- VERIFY command ---
+  if (config.op == Operation::VERIFY) {
+    if (config.inputFile.empty()) {
+      std::cerr << "Error: Input file is required for verify.\n";
+      return 1;
+    }
+
+    std::string hashFile = config.inputFile + ".hash";
+    try {
+      // Read expected hash from sidecar
+      std::ifstream hf(hashFile);
+      if (!hf) {
+        std::cerr << "Error: Hash file not found: " << hashFile << "\n";
+        return 1;
+      }
+      std::string expectedHex;
+      hf >> expectedHex;
+
+      // Compute actual hash
+      auto actualHash = HashUtil::hash_file(config.inputFile);
+      std::string actualHex = HashUtil::to_hex_string(actualHash);
+
+      if (expectedHex == actualHex) {
+        std::cout << "PASS: File integrity verified.\n";
+        std::cout << "SHA-256: " << actualHex << "\n";
+        return 0;
+      } else {
+        std::cerr << "FAIL: File integrity check failed!\n";
+        std::cerr << "Expected: " << expectedHex << "\n";
+        std::cerr << "Actual:   " << actualHex << "\n";
+        return 1;
+      }
+    } catch (const std::exception &e) {
+      std::cerr << "Error: " << e.what() << std::endl;
+      return 1;
+    }
+  }
+
+  // --- ENCRYPT / DECRYPT ---
   if (config.inputFile.empty() || config.outputFile.empty()) {
     std::cerr << "Error: Input and Output files are required.\n";
     return 1;
   }
 
   // Dispatcher
-std::unique_ptr<Encryptor> encryptor;
+  std::unique_ptr<Encryptor> encryptor;
 
   if (config.algorithm == "aes256") {
     encryptor = std::make_unique<AesCipher>(config.mode);
-  } 
-  else if (config.algorithm == "chacha20") {
+  } else if (config.algorithm == "chacha20") {
     encryptor = std::make_unique<ChaChaCipher>();
-  }
-  else {
+  } else {
     std::cerr << "Error: Unknown algorithm '" << config.algorithm << "'.\n";
     return 1;
   }
@@ -108,6 +154,20 @@ std::unique_ptr<Encryptor> encryptor;
     if (success) {
       if (FileHandler::write_file(config.outputFile, outputData)) {
         std::cout << "Success! Output written to " << config.outputFile << "\n";
+
+        // If --verify flag set during encrypt, write .hash sidecar
+        if (config.op == Operation::ENCRYPT && config.verify) {
+          auto hash = HashUtil::hash_file(config.outputFile);
+          std::string hashHex = HashUtil::to_hex_string(hash);
+          std::string hashPath = config.outputFile + ".hash";
+          std::ofstream hf(hashPath);
+          if (hf) {
+            hf << hashHex << "\n";
+            std::cout << "Hash sidecar written to " << hashPath << "\n";
+          } else {
+            std::cerr << "Warning: Could not write hash file: " << hashPath << "\n";
+          }
+        }
       } else {
         return 1;
       }
