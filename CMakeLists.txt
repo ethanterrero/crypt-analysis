@@ -58,6 +58,8 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(run_tests
     tests/test_encryption.cpp
+    tests/test_integrity.cpp
+    tests/test_performance.cpp
     ${LIB_SOURCES}
 )
 
