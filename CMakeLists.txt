@@ -29,6 +29,8 @@ add_executable(file-crypto
     src/crypto/key_derivation.cpp
     src/io/file_handler.cpp
     src/utils/hash.cpp
+    src/metrics/performance.cpp
+    src/benchmark/profiler.cpp
 )
 
 # Link against OpenSSL
