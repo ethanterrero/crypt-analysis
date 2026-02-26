@@ -1,41 +1,14 @@
 #include "chacha_cipher.h"
 #include <openssl/evp.h>
 #include <openssl/rand.h>
-#include <openssl/sha.h>
 #include <cstring>
 #include <iostream>
 
 ChaChaCipher::ChaChaCipher() {
-    // OpenSSL init is handled automatically
 }
 
 ChaChaCipher::~ChaChaCipher() {
 }
-
-// Helper: Uses EVP_Digest 
-void ChaChaCipher::deriveKeyAndIV(const std::string &phrase, const unsigned char *salt, unsigned char *key, unsigned char *iv) {
-    unsigned char hash[SHA256_DIGEST_LENGTH];
-    unsigned int hashLen;
-    
-    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
-
-    // Generate Key
-    EVP_DigestInit_ex(ctx, EVP_sha256(), NULL);
-    EVP_DigestUpdate(ctx, phrase.c_str(), phrase.length());
-    EVP_DigestUpdate(ctx, salt, SALT_SIZE);
-    EVP_DigestFinal_ex(ctx, hash, &hashLen);
-    memcpy(key, hash, KEY_SIZE);
-
-    // Generate IV (ChaCha uses 16 bytes: 4 byte counter + 12 byte nonce)
-    EVP_DigestInit_ex(ctx, EVP_sha256(), NULL);
-    EVP_DigestUpdate(ctx, hash, SHA256_DIGEST_LENGTH);
-    EVP_DigestFinal_ex(ctx, hash, &hashLen);
-    memcpy(iv, hash, IV_SIZE);
-
-    EVP_MD_CTX_free(ctx);
-}
-
-
 
 bool ChaChaCipher::encrypt(const std::vector<uint8_t> &input, const std::string &key, std::vector<uint8_t> &output) {
     EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
@@ -48,10 +21,10 @@ bool ChaChaCipher::encrypt(const std::vector<uint8_t> &input, const std::string 
         return false;
     }
 
-    // Derive Key/IV
+    // Derive Key/IV using PBKDF2
     unsigned char chachaKey[KEY_SIZE];
     unsigned char chachaIv[IV_SIZE];
-    deriveKeyAndIV(key, salt, chachaKey, chachaIv);
+    KeyDerivation::deriveKeyAndIV(key, salt, SALT_SIZE, chachaKey, KEY_SIZE, chachaIv, IV_SIZE);
 
     // Write Salt to output
     output.clear();
@@ -86,8 +59,6 @@ bool ChaChaCipher::encrypt(const std::vector<uint8_t> &input, const std::string 
     return true;
 }
 
-
-
 bool ChaChaCipher::decrypt(const std::vector<uint8_t> &input, const std::string &key, std::vector<uint8_t> &output) {
     if (input.size() < SALT_SIZE) return false;
 
@@ -98,18 +69,18 @@ bool ChaChaCipher::decrypt(const std::vector<uint8_t> &input, const std::string 
     unsigned char salt[SALT_SIZE];
     memcpy(salt, input.data(), SALT_SIZE);
 
-    //  Derive Key/IV
+    // Derive Key/IV using PBKDF2
     unsigned char chachaKey[KEY_SIZE];
     unsigned char chachaIv[IV_SIZE];
-    deriveKeyAndIV(key, salt, chachaKey, chachaIv);
+    KeyDerivation::deriveKeyAndIV(key, salt, SALT_SIZE, chachaKey, KEY_SIZE, chachaIv, IV_SIZE);
 
-    //  Init Decrypt
+    // Init Decrypt
     if (1 != EVP_DecryptInit_ex(ctx, EVP_chacha20(), NULL, chachaKey, chachaIv)) {
         EVP_CIPHER_CTX_free(ctx);
         return false;
     }
 
-    //  Decrypt
+    // Decrypt
     int len;
     int plaintext_len;
     output.resize(input.size());

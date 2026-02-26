@@ -26,6 +26,7 @@ add_executable(file-crypto
     src/main.cpp
     src/crypto/aes_cipher.cpp
     src/crypto/chacha_cipher.cpp
+    src/crypto/key_derivation.cpp
     src/io/file_handler.cpp
 )
 
