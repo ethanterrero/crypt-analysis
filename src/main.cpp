@@ -103,7 +103,7 @@ int main(int argc, char *argv[]) {
 std::unique_ptr<Encryptor> encryptor;
 
   if (config.algorithm == "aes256") {
-    encryptor = std::make_unique<AesCipher>();
+    encryptor = std::make_unique<AesCipher>(config.mode);
   } 
   else if (config.algorithm == "chacha20") {
     encryptor = std::make_unique<ChaChaCipher>();

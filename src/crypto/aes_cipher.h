@@ -10,7 +10,7 @@
 
 class AesCipher : public Encryptor {
 public:
-    AesCipher();
+    explicit AesCipher(const std::string &mode = "cbc");
     ~AesCipher();
 
     bool encrypt(const std::vector<uint8_t> &input,
@@ -22,7 +22,13 @@ public:
                  std::vector<uint8_t> &output) override;
 
 private:
+    std::string m_mode;
     static const int KEY_SIZE = 32;  // 256 bits
-    static const int IV_SIZE = 16;   // 128 bits
-    static const int SALT_SIZE = KeyDerivation::SALT_SIZE; // 16 bytes
+    static const int IV_SIZE = 16;   // 128 bits (also used for GCM 12-byte IV, padded)
+    static const int SALT_SIZE = KeyDerivation::SALT_SIZE;
+    static const int GCM_TAG_SIZE = 16;
+    static const int GCM_IV_SIZE = 12;
+
+    const EVP_CIPHER* getCipher() const;
+    int getIVSize() const;
 };
