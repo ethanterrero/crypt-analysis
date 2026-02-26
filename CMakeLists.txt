@@ -28,6 +28,7 @@ add_executable(file-crypto
     src/crypto/chacha_cipher.cpp
     src/crypto/key_derivation.cpp
     src/io/file_handler.cpp
+    src/utils/hash.cpp
 )
 
 # Link against OpenSSL
