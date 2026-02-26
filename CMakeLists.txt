@@ -26,6 +26,7 @@ set(LIB_SOURCES
     src/crypto/aes_cipher.cpp
     src/crypto/chacha_cipher.cpp
     src/crypto/key_derivation.cpp
+    src/crypto/file_format.cpp
     src/io/file_handler.cpp
     src/utils/hash.cpp
     src/metrics/performance.cpp

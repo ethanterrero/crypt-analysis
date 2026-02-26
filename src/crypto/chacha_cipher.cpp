@@ -26,9 +26,11 @@ bool ChaChaCipher::encrypt(const std::vector<uint8_t> &input, const std::string 
     unsigned char chachaIv[IV_SIZE];
     KeyDerivation::deriveKeyAndIV(key, salt, SALT_SIZE, chachaKey, KEY_SIZE, chachaIv, IV_SIZE);
 
-    // Write Salt to output
+    // Build file header: [FC magic][algo][mode][salt][iv]
+    auto header = FileFormat::buildHeader(FileFormat::ALGO_CHACHA20, FileFormat::MODE_NONE,
+                                           salt, SALT_SIZE, chachaIv, IV_SIZE);
     output.clear();
-    output.insert(output.end(), salt, salt + SALT_SIZE);
+    output.insert(output.end(), header.begin(), header.end());
 
     // Init ChaCha20
     if (1 != EVP_EncryptInit_ex(ctx, EVP_chacha20(), NULL, chachaKey, chachaIv)) {
@@ -60,19 +62,29 @@ bool ChaChaCipher::encrypt(const std::vector<uint8_t> &input, const std::string 
 }
 
 bool ChaChaCipher::decrypt(const std::vector<uint8_t> &input, const std::string &key, std::vector<uint8_t> &output) {
-    if (input.size() < SALT_SIZE) return false;
+    // Parse the file header
+    FileFormat::AlgorithmID algo;
+    FileFormat::ModeID mode;
+    std::vector<uint8_t> salt, iv;
+    size_t headerSize;
+
+    try {
+        headerSize = FileFormat::parseHeader(input, algo, mode, salt, iv);
+    } catch (const std::exception &e) {
+        std::cerr << "Header parse error: " << e.what() << std::endl;
+        return false;
+    }
+
+    // Derive Key using PBKDF2 with salt from header, use IV from header
+    unsigned char chachaKey[KEY_SIZE];
+    unsigned char chachaIv[IV_SIZE];
+    KeyDerivation::deriveKeyAndIV(key, salt.data(), static_cast<int>(salt.size()),
+                                  chachaKey, KEY_SIZE, chachaIv, 1);
+    // Use the IV stored in the header
+    memcpy(chachaIv, iv.data(), iv.size());
 
     EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
     if (!ctx) return false;
-
-    // Extract Salt
-    unsigned char salt[SALT_SIZE];
-    memcpy(salt, input.data(), SALT_SIZE);
-
-    // Derive Key/IV using PBKDF2
-    unsigned char chachaKey[KEY_SIZE];
-    unsigned char chachaIv[IV_SIZE];
-    KeyDerivation::deriveKeyAndIV(key, salt, SALT_SIZE, chachaKey, KEY_SIZE, chachaIv, IV_SIZE);
 
     // Init Decrypt
     if (1 != EVP_DecryptInit_ex(ctx, EVP_chacha20(), NULL, chachaKey, chachaIv)) {
@@ -85,7 +97,8 @@ bool ChaChaCipher::decrypt(const std::vector<uint8_t> &input, const std::string 
     int plaintext_len;
     output.resize(input.size());
 
-    if (1 != EVP_DecryptUpdate(ctx, output.data(), &len, input.data() + SALT_SIZE, input.size() - SALT_SIZE)) {
+    if (1 != EVP_DecryptUpdate(ctx, output.data(), &len,
+                                input.data() + headerSize, input.size() - headerSize)) {
         EVP_CIPHER_CTX_free(ctx);
         return false;
     }

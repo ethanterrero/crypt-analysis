@@ -6,8 +6,7 @@
 #include <stdexcept>
 
 AesCipher::AesCipher(const std::string &mode) : m_mode(mode) {
-    // Validate mode at construction time
-    getCipher();
+    getCipher(); // validate mode at construction
 }
 
 AesCipher::~AesCipher() {
@@ -21,9 +20,9 @@ const EVP_CIPHER* AesCipher::getCipher() const {
 }
 
 int AesCipher::getIVSize() const {
-    if (m_mode == "ecb") return 0;   // ECB has no IV
-    if (m_mode == "gcm") return GCM_IV_SIZE; // 12 bytes for GCM
-    return IV_SIZE; // 16 bytes for CBC
+    if (m_mode == "ecb") return 0;
+    if (m_mode == "gcm") return GCM_IV_SIZE;
+    return IV_SIZE;
 }
 
 bool AesCipher::encrypt(const std::vector<uint8_t> &input, const std::string &key, std::vector<uint8_t> &output) {
@@ -37,16 +36,20 @@ bool AesCipher::encrypt(const std::vector<uint8_t> &input, const std::string &ke
         return false;
     }
 
-    // Derive the actual AES Key and IV from user's password using PBKDF2
+    // Derive Key and IV using PBKDF2
     int ivSize = getIVSize();
     unsigned char aesKey[KEY_SIZE];
-    unsigned char aesIv[IV_SIZE]; // allocate max size
+    unsigned char aesIv[IV_SIZE];
     KeyDerivation::deriveKeyAndIV(key, salt, SALT_SIZE, aesKey, KEY_SIZE,
                                   aesIv, ivSize > 0 ? ivSize : 1);
 
-    // Write Salt to the beginning of output
+    // Build file header: [FC magic][algo][mode][salt][iv]
+    auto algoId = FileFormat::ALGO_AES256;
+    auto modeId = FileFormat::modeFromString(m_mode);
+    auto header = FileFormat::buildHeader(algoId, modeId, salt, SALT_SIZE, aesIv, ivSize);
+
     output.clear();
-    output.insert(output.end(), salt, salt + SALT_SIZE);
+    output.insert(output.end(), header.begin(), header.end());
 
     // Initialize Encryption
     const EVP_CIPHER *cipher = getCipher();
@@ -55,7 +58,6 @@ bool AesCipher::encrypt(const std::vector<uint8_t> &input, const std::string &ke
             EVP_CIPHER_CTX_free(ctx);
             return false;
         }
-        // Set IV length for GCM
         if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, GCM_IV_SIZE, NULL)) {
             EVP_CIPHER_CTX_free(ctx);
             return false;
@@ -75,7 +77,6 @@ bool AesCipher::encrypt(const std::vector<uint8_t> &input, const std::string &ke
     // Encrypt Data
     int len;
     int ciphertext_len;
-
     size_t header_size = output.size();
     output.resize(header_size + input.size() + AES_BLOCK_SIZE);
 
@@ -108,28 +109,48 @@ bool AesCipher::encrypt(const std::vector<uint8_t> &input, const std::string &ke
 }
 
 bool AesCipher::decrypt(const std::vector<uint8_t> &input, const std::string &key, std::vector<uint8_t> &output) {
-    if (input.size() < static_cast<size_t>(SALT_SIZE)) return false;
+    // Parse the file header to extract salt, IV, algo, mode
+    FileFormat::AlgorithmID algo;
+    FileFormat::ModeID mode;
+    std::vector<uint8_t> salt, iv;
+    size_t headerSize;
+
+    try {
+        headerSize = FileFormat::parseHeader(input, algo, mode, salt, iv);
+    } catch (const std::exception &e) {
+        std::cerr << "Header parse error: " << e.what() << std::endl;
+        return false;
+    }
+
+    // Derive Key and IV using PBKDF2 with salt from header
+    int ivSize = static_cast<int>(iv.size());
+    unsigned char aesKey[KEY_SIZE];
+    unsigned char aesIv[IV_SIZE];
+
+    if (ivSize > 0) {
+        memcpy(aesIv, iv.data(), ivSize);
+    }
+    // We only need to derive the key since IV is stored in header
+    // But we derive both for consistency and use the stored IV
+    KeyDerivation::deriveKeyAndIV(key, salt.data(), static_cast<int>(salt.size()),
+                                  aesKey, KEY_SIZE, aesIv, 1); // derive key only (1 dummy IV byte)
+    // Overwrite with the actual IV from the header
+    if (ivSize > 0) {
+        memcpy(aesIv, iv.data(), ivSize);
+    }
 
     EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
     if (!ctx) return false;
 
-    // Extract Salt from the beginning
-    unsigned char salt[SALT_SIZE];
-    memcpy(salt, input.data(), SALT_SIZE);
+    size_t dataStart = headerSize;
+    size_t dataLen = input.size() - headerSize;
 
-    // Derive Key and IV using PBKDF2
-    int ivSize = getIVSize();
-    unsigned char aesKey[KEY_SIZE];
-    unsigned char aesIv[IV_SIZE];
-    KeyDerivation::deriveKeyAndIV(key, salt, SALT_SIZE, aesKey, KEY_SIZE,
-                                  aesIv, ivSize > 0 ? ivSize : 1);
-
-    size_t dataStart = SALT_SIZE;
-    size_t dataLen = input.size() - SALT_SIZE;
+    // Resolve mode string from header
+    std::string modeStr = FileFormat::modeToString(mode);
 
     // For GCM, extract the auth tag from the end
     unsigned char tag[GCM_TAG_SIZE];
-    if (m_mode == "gcm") {
+    if (modeStr == "gcm") {
         if (dataLen < static_cast<size_t>(GCM_TAG_SIZE)) {
             EVP_CIPHER_CTX_free(ctx);
             return false;
@@ -140,12 +161,12 @@ bool AesCipher::decrypt(const std::vector<uint8_t> &input, const std::string &ke
 
     // Initialize Decryption
     const EVP_CIPHER *cipher = getCipher();
-    if (m_mode == "gcm") {
+    if (modeStr == "gcm") {
         if (1 != EVP_DecryptInit_ex(ctx, cipher, NULL, NULL, NULL)) {
             EVP_CIPHER_CTX_free(ctx);
             return false;
         }
-        if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, GCM_IV_SIZE, NULL)) {
+        if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, ivSize, NULL)) {
             EVP_CIPHER_CTX_free(ctx);
             return false;
         }
@@ -153,7 +174,6 @@ bool AesCipher::decrypt(const std::vector<uint8_t> &input, const std::string &ke
             EVP_CIPHER_CTX_free(ctx);
             return false;
         }
-        // Set expected tag
         if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_TAG, GCM_TAG_SIZE, tag)) {
             EVP_CIPHER_CTX_free(ctx);
             return false;
@@ -166,7 +186,7 @@ bool AesCipher::decrypt(const std::vector<uint8_t> &input, const std::string &ke
         }
     }
 
-    // Decrypt Data
+    // Decrypt
     int len;
     int plaintext_len;
     output.resize(input.size());

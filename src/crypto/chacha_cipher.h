@@ -2,6 +2,7 @@
 
 #include "encryptor.h"
 #include "key_derivation.h"
+#include "file_format.h"
 #include <openssl/evp.h>
 #include <string>
 #include <vector>
@@ -22,5 +23,5 @@ public:
 private:
     static const int KEY_SIZE = 32;
     static const int IV_SIZE = 16;   // 4-byte counter + 12-byte nonce
-    static const int SALT_SIZE = KeyDerivation::SALT_SIZE; // 16 bytes
+    static const int SALT_SIZE = KeyDerivation::SALT_SIZE;
 };

@@ -2,6 +2,7 @@
 
 #include "encryptor.h"
 #include "key_derivation.h"
+#include "file_format.h"
 #include <openssl/evp.h>
 #include <openssl/aes.h>
 #include <openssl/rand.h>
@@ -24,7 +25,7 @@ public:
 private:
     std::string m_mode;
     static const int KEY_SIZE = 32;  // 256 bits
-    static const int IV_SIZE = 16;   // 128 bits (also used for GCM 12-byte IV, padded)
+    static const int IV_SIZE = 16;   // 128 bits
     static const int SALT_SIZE = KeyDerivation::SALT_SIZE;
     static const int GCM_TAG_SIZE = 16;
     static const int GCM_IV_SIZE = 12;
