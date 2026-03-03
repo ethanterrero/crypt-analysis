@@ -8,10 +8,10 @@
 namespace fs = std::filesystem; 
 
 typedef struct fileMetaData {
-    std::string fileName; 
-    std::uintmax_t fileSize; 
-    bool isValid; 
-} fileMetaData; 
+    std::string fileName;
+    std::uintmax_t fileSize = 0;
+    bool isValid = false;
+} fileMetaData;
 
 class f_Handler {
 public: 
@@ -35,16 +35,8 @@ public:
     static constexpr size_t CHUNK_SIZE = 4096; // static -> belongs to class itself, constexpr tells compiler the value wont change so it can be optimzed, the value itself is "sweet spot" for performance 
 
     /* CONSTRUCTORS HERE */
-    f_Handler(const std::string& path) : internalBuffer(CHUNK_SIZE) {
-        updatePath(path); // calling this function upon construction of the object
-        // use list initializer to set internalBuffer to the CHUNK_SIZE 
-    }
-
-    ~f_Handler() {
-        if (fileObject.is_open()) {
-            fileObject.close();
-        }
-    }
+    f_Handler(const std::string& path);
+    ~f_Handler();
 
 private: 
     fileMetaData f_summary; 

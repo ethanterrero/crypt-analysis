@@ -27,6 +27,10 @@ add_executable(file-crypto
     src/crypto/aes_cipher.cpp
     src/crypto/chacha_cipher.cpp
     src/io/file_handler.cpp
+    src/benchmark/profiler.cpp
+    src/analysis/avalanche.cpp
+    src/analysis/entropy.cpp
+    src/analysis/frequency.cpp
 )
 
 # Link against OpenSSL
