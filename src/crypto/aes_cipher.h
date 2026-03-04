@@ -1,6 +1,8 @@
 #pragma once
 
 #include "encryptor.h"
+#include "key_derivation.h"
+#include "file_format.h"
 #include <openssl/evp.h>
 #include <openssl/aes.h>
 #include <openssl/rand.h>
@@ -9,26 +11,25 @@
 
 class AesCipher : public Encryptor {
 public:
-    AesCipher();
+    explicit AesCipher(const std::string &mode = "cbc");
     ~AesCipher();
 
-    bool encrypt(const std::vector<uint8_t> &input, 
-                 const std::string &key, 
+    bool encrypt(const std::vector<uint8_t> &input,
+                 const std::string &key,
                  std::vector<uint8_t> &output) override;
 
-    bool decrypt(const std::vector<uint8_t> &input, 
-                 const std::string &key, 
+    bool decrypt(const std::vector<uint8_t> &input,
+                 const std::string &key,
                  std::vector<uint8_t> &output) override;
 
 private:
+    std::string m_mode;
+    static const int KEY_SIZE = 32;  // 256 bits
+    static const int IV_SIZE = 16;   // 128 bits
+    static const int SALT_SIZE = KeyDerivation::SALT_SIZE;
+    static const int GCM_TAG_SIZE = 16;
+    static const int GCM_IV_SIZE = 12;
 
-    static const int KEY_SIZE = 32; // 256 bits
-    static const int IV_SIZE = 16;  // 128 bits 
-    static const int SALT_SIZE = 8; 
-
-    //helper function
-    void deriveKeyAndIV(const std::string &phrase, 
-                        const unsigned char *salt, 
-                        unsigned char *key, 
-                        unsigned char *iv);
+    const EVP_CIPHER* getCipher() const;
+    int getIVSize() const;
 };
