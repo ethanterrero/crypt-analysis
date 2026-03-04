@@ -31,3 +31,6 @@ CTestTestfile.cmake
 
 # Cache
 .cache/
+
+# Claude Code local config
+.claude/
