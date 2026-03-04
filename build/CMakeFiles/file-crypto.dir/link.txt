@@ -1,1 +1,0 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names "CMakeFiles/file-crypto.dir/src/main.cpp.o" "CMakeFiles/file-crypto.dir/src/crypto/aes_cipher.cpp.o" "CMakeFiles/file-crypto.dir/src/crypto/chacha_cipher.cpp.o" "CMakeFiles/file-crypto.dir/src/io/file_handler.cpp.o" -o file-crypto  /opt/homebrew/opt/openssl@3/lib/libcrypto.dylib
