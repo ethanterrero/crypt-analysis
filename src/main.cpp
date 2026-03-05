@@ -2,6 +2,7 @@
 #include "io/file_handler.h"
 #include "crypto/chacha_cipher.h"
 #include "crypto/aes_cipher.h"
+#include "server/server.h"
 #include <cstring>
 #include <iostream>
 #include <memory>
@@ -30,7 +31,7 @@ public:
   }
 };
 
-enum class Operation { NONE, ENCRYPT, DECRYPT, BENCHMARK, VERIFY };
+enum class Operation { NONE, ENCRYPT, DECRYPT, BENCHMARK, VERIFY, SERVER };
 
 struct Config {
   std::string inputFile;
@@ -38,6 +39,7 @@ struct Config {
   std::string algorithm = "aes256";
   std::string mode = "cbc";
   std::string password;
+  int serverPort = 8765;
   Operation op = Operation::NONE;
 };
 
@@ -46,6 +48,7 @@ void print_help() {
             << "Commands:\n"
             << "  encrypt  Encrypt a file\n"
             << "  decrypt  Decrypt a file\n"
+            << "  server   Start the HTTP test server (for the React dashboard)\n"
             << "Options:\n"
             << "  -i, --input <file>     Input file path\n"
             << "  -o, --output <file>    Output file path\n"
@@ -53,6 +56,7 @@ void print_help() {
             << "  -a, --algorithm <name> Algorithm (aes256, chacha20). "
                "Default: aes256\n"
             << "  -m, --mode <name>      Mode (cbc, ecb). Default: cbc\n"
+            << "  --port <n>             Server port (default: 8765)\n"
             << "  -h, --help             Show this help message\n";
 }
 
@@ -67,6 +71,8 @@ int main(int argc, char *argv[]) {
       config.op = Operation::ENCRYPT;
     } else if (arg == "decrypt") {
       config.op = Operation::DECRYPT;
+    } else if (arg == "server") {
+      config.op = Operation::SERVER;
     } else if (arg == "-i" || arg == "--input") {
       if (i + 1 < argc)
         config.inputFile = argv[++i];
@@ -82,10 +88,18 @@ int main(int argc, char *argv[]) {
     } else if (arg == "-m" || arg == "--mode") {
       if (i + 1 < argc)
         config.mode = argv[++i];
+    } else if (arg == "--port") {
+      if (i + 1 < argc)
+        config.serverPort = std::stoi(argv[++i]);
     } else if (arg == "-h" || arg == "--help") {
       print_help();
       return 0;
     }
+  }
+
+  if (config.op == Operation::SERVER) {
+    run_server(config.serverPort);
+    return 0;
   }
 
   if (config.op == Operation::NONE) {

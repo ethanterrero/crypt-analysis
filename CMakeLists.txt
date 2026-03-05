@@ -17,9 +17,13 @@ endif()
 # Find OpenSSL - failing if not found
 find_package(OpenSSL REQUIRED)
 
+# Threads required by cpp-httplib
+find_package(Threads REQUIRED)
+
 # Include directories (This fixes the "cannot open source file" error)
 include_directories(${OPENSSL_INCLUDE_DIR})
-include_directories(src) # Add src to path so we can include headers easily
+include_directories(src)          # headers under src/
+include_directories(third_party)  # httplib.h
 
 # Define the executable
 add_executable(file-crypto
@@ -31,11 +35,13 @@ add_executable(file-crypto
     src/analysis/avalanche.cpp
     src/analysis/entropy.cpp
     src/analysis/frequency.cpp
+    src/server/server.cpp
 )
 
-# Link against OpenSSL
+# Link against OpenSSL and pthreads (httplib requires threads)
 target_link_libraries(file-crypto
     OpenSSL::Crypto
+    Threads::Threads
 )
 
 # Enable testing

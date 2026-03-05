@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CMake.app/Contents/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CMake.app/Contents/bin/cmake -E rm -f
+RM = /opt/homebrew/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/milesoop/Desktop/443project/crypt-analysis
+CMAKE_SOURCE_DIR = /Users/noelhernandez/Documents/GitHub/crypt-analysis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/milesoop/Desktop/443project/crypt-analysis/build
+CMAKE_BINARY_DIR = /Users/noelhernandez/Documents/GitHub/crypt-analysis/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/milesoop/Desktop/443project/crypt-analysis/build
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
-	/Applications/CMake.app/Contents/bin/ctest $(ARGS)
+	/opt/homebrew/bin/ctest $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -78,7 +78,7 @@ test/fast: test
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/Applications/CMake.app/Contents/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -88,7 +88,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles /Users/milesoop/Desktop/443project/crypt-analysis/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/noelhernandez/Documents/GitHub/crypt-analysis/build/CMakeFiles /Users/noelhernandez/Documents/GitHub/crypt-analysis/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/milesoop/Desktop/443project/crypt-analysis/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/noelhernandez/Documents/GitHub/crypt-analysis/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -138,6 +138,102 @@ file-crypto: cmake_check_build_system
 file-crypto/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/build
 .PHONY : file-crypto/fast
+
+src/analysis/avalanche.o: src/analysis/avalanche.cpp.o
+.PHONY : src/analysis/avalanche.o
+
+# target to build an object file
+src/analysis/avalanche.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/avalanche.cpp.o
+.PHONY : src/analysis/avalanche.cpp.o
+
+src/analysis/avalanche.i: src/analysis/avalanche.cpp.i
+.PHONY : src/analysis/avalanche.i
+
+# target to preprocess a source file
+src/analysis/avalanche.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/avalanche.cpp.i
+.PHONY : src/analysis/avalanche.cpp.i
+
+src/analysis/avalanche.s: src/analysis/avalanche.cpp.s
+.PHONY : src/analysis/avalanche.s
+
+# target to generate assembly for a file
+src/analysis/avalanche.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/avalanche.cpp.s
+.PHONY : src/analysis/avalanche.cpp.s
+
+src/analysis/entropy.o: src/analysis/entropy.cpp.o
+.PHONY : src/analysis/entropy.o
+
+# target to build an object file
+src/analysis/entropy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/entropy.cpp.o
+.PHONY : src/analysis/entropy.cpp.o
+
+src/analysis/entropy.i: src/analysis/entropy.cpp.i
+.PHONY : src/analysis/entropy.i
+
+# target to preprocess a source file
+src/analysis/entropy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/entropy.cpp.i
+.PHONY : src/analysis/entropy.cpp.i
+
+src/analysis/entropy.s: src/analysis/entropy.cpp.s
+.PHONY : src/analysis/entropy.s
+
+# target to generate assembly for a file
+src/analysis/entropy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/entropy.cpp.s
+.PHONY : src/analysis/entropy.cpp.s
+
+src/analysis/frequency.o: src/analysis/frequency.cpp.o
+.PHONY : src/analysis/frequency.o
+
+# target to build an object file
+src/analysis/frequency.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/frequency.cpp.o
+.PHONY : src/analysis/frequency.cpp.o
+
+src/analysis/frequency.i: src/analysis/frequency.cpp.i
+.PHONY : src/analysis/frequency.i
+
+# target to preprocess a source file
+src/analysis/frequency.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/frequency.cpp.i
+.PHONY : src/analysis/frequency.cpp.i
+
+src/analysis/frequency.s: src/analysis/frequency.cpp.s
+.PHONY : src/analysis/frequency.s
+
+# target to generate assembly for a file
+src/analysis/frequency.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/analysis/frequency.cpp.s
+.PHONY : src/analysis/frequency.cpp.s
+
+src/benchmark/profiler.o: src/benchmark/profiler.cpp.o
+.PHONY : src/benchmark/profiler.o
+
+# target to build an object file
+src/benchmark/profiler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/benchmark/profiler.cpp.o
+.PHONY : src/benchmark/profiler.cpp.o
+
+src/benchmark/profiler.i: src/benchmark/profiler.cpp.i
+.PHONY : src/benchmark/profiler.i
+
+# target to preprocess a source file
+src/benchmark/profiler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/benchmark/profiler.cpp.i
+.PHONY : src/benchmark/profiler.cpp.i
+
+src/benchmark/profiler.s: src/benchmark/profiler.cpp.s
+.PHONY : src/benchmark/profiler.s
+
+# target to generate assembly for a file
+src/benchmark/profiler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/benchmark/profiler.cpp.s
+.PHONY : src/benchmark/profiler.cpp.s
 
 src/crypto/aes_cipher.o: src/crypto/aes_cipher.cpp.o
 .PHONY : src/crypto/aes_cipher.o
@@ -235,6 +331,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/server/server.o: src/server/server.cpp.o
+.PHONY : src/server/server.o
+
+# target to build an object file
+src/server/server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/server/server.cpp.o
+.PHONY : src/server/server.cpp.o
+
+src/server/server.i: src/server/server.cpp.i
+.PHONY : src/server/server.i
+
+# target to preprocess a source file
+src/server/server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/server/server.cpp.i
+.PHONY : src/server/server.cpp.i
+
+src/server/server.s: src/server/server.cpp.s
+.PHONY : src/server/server.s
+
+# target to generate assembly for a file
+src/server/server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/file-crypto.dir/build.make CMakeFiles/file-crypto.dir/src/server/server.cpp.s
+.PHONY : src/server/server.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -245,6 +365,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... file-crypto"
+	@echo "... src/analysis/avalanche.o"
+	@echo "... src/analysis/avalanche.i"
+	@echo "... src/analysis/avalanche.s"
+	@echo "... src/analysis/entropy.o"
+	@echo "... src/analysis/entropy.i"
+	@echo "... src/analysis/entropy.s"
+	@echo "... src/analysis/frequency.o"
+	@echo "... src/analysis/frequency.i"
+	@echo "... src/analysis/frequency.s"
+	@echo "... src/benchmark/profiler.o"
+	@echo "... src/benchmark/profiler.i"
+	@echo "... src/benchmark/profiler.s"
 	@echo "... src/crypto/aes_cipher.o"
 	@echo "... src/crypto/aes_cipher.i"
 	@echo "... src/crypto/aes_cipher.s"
@@ -257,6 +389,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/server/server.o"
+	@echo "... src/server/server.i"
+	@echo "... src/server/server.s"
 .PHONY : help
 
 
