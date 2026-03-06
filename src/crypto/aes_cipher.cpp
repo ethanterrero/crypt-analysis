@@ -159,8 +159,12 @@ bool AesCipher::decrypt(const std::vector<uint8_t> &input, const std::string &ke
         memcpy(tag, input.data() + dataStart + dataLen, GCM_TAG_SIZE);
     }
 
-    // Initialize Decryption
-    const EVP_CIPHER *cipher = getCipher();
+    // Initialize Decryption using mode from file header, not constructor
+    const EVP_CIPHER *cipher;
+    if (modeStr == "cbc") cipher = EVP_aes_256_cbc();
+    else if (modeStr == "ecb") cipher = EVP_aes_256_ecb();
+    else if (modeStr == "gcm") cipher = EVP_aes_256_gcm();
+    else { EVP_CIPHER_CTX_free(ctx); return false; }
     if (modeStr == "gcm") {
         if (1 != EVP_DecryptInit_ex(ctx, cipher, NULL, NULL, NULL)) {
             EVP_CIPHER_CTX_free(ctx);
