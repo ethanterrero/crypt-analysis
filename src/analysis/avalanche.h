@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-enum class CipherType { AES256_CBC, CHACHA20 };
+enum class CipherType { AES256_CBC, AES256_ECB, CHACHA20 };
 
 struct AvalancheResult {
     double avg_bit_change_pct;  // How many output bits changed on average — ideal: ~50%

@@ -54,6 +54,33 @@ static bool encrypt_aes256_cbc(const std::vector<uint8_t>& plaintext,
     return true;
 }
 
+static bool encrypt_aes256_ecb(const std::vector<uint8_t>& plaintext,
+                                const uint8_t* key,
+                                std::vector<uint8_t>& output) {
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) return false;
+
+    // ECB takes no IV — each block is encrypted independently.
+    output.resize(plaintext.size() + 16);
+    int len = 0, total = 0;
+
+    if (EVP_EncryptInit_ex(ctx, EVP_aes_256_ecb(), nullptr, key, nullptr) != 1 ||
+        EVP_EncryptUpdate(ctx, output.data(), &len,
+                          plaintext.data(), static_cast<int>(plaintext.size())) != 1) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
+    }
+    total = len;
+
+    if (EVP_EncryptFinal_ex(ctx, output.data() + total, &len) != 1) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
+    }
+    output.resize(total + len);
+    EVP_CIPHER_CTX_free(ctx);
+    return true;
+}
+
 static bool encrypt_chacha20(const std::vector<uint8_t>& plaintext,
                               const uint8_t* key, const uint8_t* iv,
                               std::vector<uint8_t>& output) {
@@ -89,6 +116,7 @@ static bool encrypt_fixed(CipherType cipher,
                            std::vector<uint8_t>& output) {
     switch (cipher) {
         case CipherType::AES256_CBC: return encrypt_aes256_cbc(plaintext, key, iv, output);
+        case CipherType::AES256_ECB: return encrypt_aes256_ecb(plaintext, key, output);
         case CipherType::CHACHA20:   return encrypt_chacha20(plaintext, key, iv, output);
     }
     return false;
@@ -191,9 +219,14 @@ void print_avalanche_result(const std::string& cipher_name,
     // Stream ciphers (e.g. ChaCha20) produce C = P XOR Keystream.
     // A 1-bit plaintext flip flips exactly 1 ciphertext bit — ~0% change is
     // correct by design, not a defect. Assess differently from block ciphers.
+    // ECB encrypts each block independently so only the affected block changes —
+    // a low score is expected and demonstrates ECB's weakness, not a bug.
     bool is_stream_behavior = result.avg_bit_change_pct < STREAM_THRESHOLD;
     if (is_stream_behavior) {
         std::cout << "  Assessment:         N/A (stream cipher — no avalanche property by design)\n";
+    } else if (cipher_name == "AES-256-ECB") {
+        std::cout << "  Assessment:         NOTE (ECB — avalanche is block-local only, "
+                  << "no propagation across blocks — this is a known weakness)\n";
     } else {
         bool pass = std::abs(result.avg_bit_change_pct - IDEAL) <= PASS_THRESHOLD;
         std::cout << "  Assessment:         " << (pass ? "PASS" : "FAIL")
