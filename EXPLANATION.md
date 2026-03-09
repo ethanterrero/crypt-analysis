@@ -330,6 +330,16 @@ diff repeated.txt repeated_check.txt && echo "GCM round-trip OK"
 
 **Talking point:** ECB encrypts each block independently — identical plaintext blocks produce identical ciphertext blocks. CBC and GCM do not have this weakness. GCM additionally provides authentication, which is why it is recommended for real-world use.
 
+### 3b. ECB Pattern Leakage — Visual Hex Comparison
+
+Use `demo/hexcompare.py` to show the repeating block pattern in ECB output side-by-side with CBC output. Differing bytes are highlighted in red.
+
+```bash
+python3 demo/hexcompare.py repeated_ecb.enc repeated_cbc.enc
+```
+
+**Talking point:** In the ECB output, the same 16-byte ciphertext block repeats over and over because every plaintext block (`AAAA...`) is identical and is encrypted independently with the same key. In CBC output, every block is different — the previous ciphertext is XOR'd into each new block before encryption, destroying the pattern. The percentage at the bottom shows how many bytes differ between the two files.
+
 ### 4. ChaCha20 (Stream Cipher)
 
 Show the alternative algorithm.
@@ -410,6 +420,19 @@ Input size: 1048576 bytes
 - ChaCha20 throughput is competitive with AES on ARM hardware (Apple Silicon has hardware AES acceleration, so AES may appear faster on Intel/AMD).
 - Overhead is near zero for all modes on a 1 MB file because the header and padding are tiny relative to the data.
 
+### 7b. Byte Frequency Distribution and Chi-Squared Test
+
+Use `demo/freqdist.py` to show that good ciphertext has a flat, uniform byte distribution — statistically indistinguishable from random noise.
+
+```bash
+python3 demo/freqdist.py demo.txt demo.enc
+```
+
+**Talking points:**
+- The plaintext side will show spikes — ASCII letters cluster around 0x61–0x7a (lowercase), 0x20 (space), etc.
+- The ciphertext side shows a flat histogram — all 256 byte values appear roughly equally often.
+- The chi-squared test at the bottom formalizes this: the plaintext FAILS (non-uniform), the ciphertext PASSES (uniform at p=0.05). A PASS means there is no statistically detectable bias in the byte distribution.
+
 ### 8. Automated Test Suite
 
 Show that everything is backed by automated tests.
@@ -431,7 +454,7 @@ Expected output:
 rm -f demo.txt demo.enc demo_recovered.txt demo_bad.txt demo_chacha.enc demo_chacha.txt
 rm -f demo_verified.enc demo_verified.enc.hash
 rm -f repeated.txt repeated_cbc.enc repeated_ecb.enc repeated_gcm.enc repeated_check.txt
-rm -f bench_input.bin
+rm -f bench_input.bin bench_input.bin.enc
 ```
 
 ---
