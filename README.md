@@ -37,6 +37,11 @@ File Encryption Tester provides a practical tool for secure file encryption whil
   - Mode comparison dashboards
   - Hardware-specific benchmarking
 
+- **Cryptographic Analysis**
+  - Avalanche effect testing (diffusion measurement per cipher)
+  - Shannon entropy measurement (bits/byte, ideal: ~8.0)
+  - Chi-squared byte frequency uniformity test (p-value scoring)
+
 ## Installation
 
 ### Prerequisites
@@ -52,15 +57,12 @@ File Encryption Tester provides a practical tool for secure file encryption whil
 git clone https://github.com/yourusername/file-encryption-tester.git
 cd file-encryption-tester
 
-# Create build directory
-mkdir build && cd build
-
 # Configure and build
-cmake ..
-make
+cmake -B build -S .
+cmake --build build
 
 # Run tests (optional)
-make test
+ctest --test-dir build
 ```
 
 ### Installing OpenSSL
@@ -165,6 +167,13 @@ crypt-analysis/
 │   ├── metrics/
 │   │   ├── performance.h     # Performance tracking
 │   │   └── performance.cpp
+│   ├── analysis/
+│   │   ├── avalanche.h       # Avalanche effect (diffusion) test
+│   │   ├── avalanche.cpp
+│   │   ├── entropy.h         # Shannon entropy measurement
+│   │   ├── entropy.cpp
+│   │   ├── frequency.h       # Chi-squared byte frequency test
+│   │   └── frequency.cpp
 │   └── utils/
 │       ├── hash.h            # SHA-256 hashing
 │       └── hash.cpp
@@ -172,6 +181,7 @@ crypt-analysis/
 │   ├── test_encryption.cpp
 │   ├── test_performance.cpp
 │   ├── test_integrity.cpp
+│   ├── test_analysis.cpp
 │   └── test_helpers.h
 ├── CMakeLists.txt
 └── README.md
@@ -248,16 +258,11 @@ This is a class project, but we welcome feedback and suggestions:
 ## Testing
 
 ```bash
-# Run all tests
-make test
+# Run all tests (58 tests across encryption, integrity, performance, analysis)
+ctest --test-dir build
 
-# Run specific test suite
-./tests/test_encryption
-./tests/test_performance
-./tests/test_integrity
-
-# Generate coverage report
-make coverage
+# Run with verbose output
+ctest --test-dir build --output-on-failure
 ```
 
 ## Known Limitations
