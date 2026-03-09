@@ -31,6 +31,9 @@ set(LIB_SOURCES
     src/utils/hash.cpp
     src/metrics/performance.cpp
     src/benchmark/profiler.cpp
+    src/analysis/avalanche.cpp
+    src/analysis/entropy.cpp
+    src/analysis/frequency.cpp
 )
 
 # Define the executable
