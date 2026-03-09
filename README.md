@@ -19,7 +19,7 @@ File Encryption Tester provides a practical tool for secure file encryption whil
 - **Cipher Modes of Operation**
   - ECB (Electronic Codebook)
   - CBC (Cipher Block Chaining)
-  - GCM (Galois/Counter Mode) *planned*
+  - GCM (Galois/Counter Mode with authentication)
 
 - **Performance Metrics**
   - Encryption/decryption speed (MB/s)
@@ -143,19 +143,25 @@ Download from [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.h
 ## Project Structure
 
 ```
-file-encryption-tester/
+crypt-analysis/
 ├── src/
 │   ├── main.cpp              # CLI entry point
 │   ├── crypto/
-│   │   ├── encryptor.h       # Encryption interface
-│   │   ├── encryptor.cpp
-│   │   ├── aes_cipher.h      # AES implementation
+│   │   ├── encryptor.h       # Encryption base class interface
+│   │   ├── aes_cipher.h      # AES-256 (ECB/CBC/GCM) implementation
 │   │   ├── aes_cipher.cpp
 │   │   ├── chacha_cipher.h   # ChaCha20 implementation
-│   │   └── chacha_cipher.cpp
+│   │   ├── chacha_cipher.cpp
+│   │   ├── key_derivation.h  # PBKDF2-HMAC-SHA256 key derivation
+│   │   ├── key_derivation.cpp
+│   │   ├── file_format.h     # Encrypted file header format
+│   │   └── file_format.cpp
 │   ├── io/
 │   │   ├── file_handler.h    # File I/O operations
 │   │   └── file_handler.cpp
+│   ├── benchmark/
+│   │   ├── profiler.h        # CPU cycle + wall-clock profiler
+│   │   └── profiler.cpp
 │   ├── metrics/
 │   │   ├── performance.h     # Performance tracking
 │   │   └── performance.cpp
@@ -165,14 +171,10 @@ file-encryption-tester/
 ├── tests/
 │   ├── test_encryption.cpp
 │   ├── test_performance.cpp
-│   └── test_integrity.cpp
-├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── API.md
-│   └── BENCHMARKS.md
+│   ├── test_integrity.cpp
+│   └── test_helpers.h
 ├── CMakeLists.txt
-├── README.md
-└── LICENSE
+└── README.md
 ```
 
 ## Development Timeline
@@ -269,7 +271,6 @@ make coverage
 
 - [ ] GUI interface
 - [ ] Additional algorithms (Twofish, Serpent)
-- [ ] GCM mode implementation
 - [ ] Multi-file batch processing
 - [ ] Cloud storage integration
 - [ ] Hardware acceleration benchmarking
