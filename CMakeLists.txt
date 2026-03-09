@@ -15,7 +15,7 @@ if(APPLE)
 endif()
 
 # Find OpenSSL - failing if not found
-find_package(OpenSSL REQUIRED)
+find_package(OpenSSL 1.1 REQUIRED)
 
 # Include directories (This fixes the "cannot open source file" error)
 include_directories(${OPENSSL_INCLUDE_DIR})
@@ -54,6 +54,7 @@ include(FetchContent)
 FetchContent_Declare(
     googletest
     URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP ON
 )
 # Prevent GoogleTest from overriding compiler/linker settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -63,6 +64,7 @@ add_executable(run_tests
     tests/test_encryption.cpp
     tests/test_integrity.cpp
     tests/test_performance.cpp
+    tests/test_analysis.cpp
     ${LIB_SOURCES}
 )
 
