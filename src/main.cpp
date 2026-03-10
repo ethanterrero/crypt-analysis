@@ -4,6 +4,9 @@
 #include "crypto/aes_cipher.h"
 #include "utils/hash.h"
 #include "metrics/performance.h"
+#include "analysis/entropy.h"
+#include "analysis/frequency.h"
+#include "analysis/avalanche.h"
 #include <cstring>
 #include <fstream>
 #include <iomanip>
@@ -13,7 +16,7 @@
 #include <string>
 #include <vector>
 
-enum class Operation { NONE, ENCRYPT, DECRYPT, BENCHMARK, VERIFY };
+enum class Operation { NONE, ENCRYPT, DECRYPT, BENCHMARK, VERIFY, ANALYZE };
 
 struct Config {
   std::string inputFile;
@@ -45,6 +48,7 @@ void print_help() {
             << "  decrypt    Decrypt a file\n"
             << "  verify     Verify file integrity using .hash sidecar\n"
             << "  benchmark  Run encryption benchmarks\n"
+            << "  analyze    Run entropy, frequency, and avalanche analysis on a file\n"
             << "Options:\n"
             << "  -i, --input <file>         Input file path\n"
             << "  -o, --output <file>        Output file path\n"
@@ -73,6 +77,8 @@ int main(int argc, char *argv[]) {
       config.op = Operation::VERIFY;
     } else if (arg == "benchmark") {
       config.op = Operation::BENCHMARK;
+    } else if (arg == "analyze") {
+      config.op = Operation::ANALYZE;
     } else if (arg == "-i" || arg == "--input") {
       if (i + 1 < argc)
         config.inputFile = argv[++i];
@@ -142,6 +148,38 @@ int main(int argc, char *argv[]) {
       std::cerr << "Error: " << e.what() << std::endl;
       return 1;
     }
+  }
+
+  // --- ANALYZE command ---
+  if (config.op == Operation::ANALYZE) {
+    if (config.inputFile.empty()) {
+      std::cerr << "Error: Input file is required for analyze (-i).\n";
+      return 1;
+    }
+    try {
+      auto data = FileHandler::read_file(config.inputFile);
+
+      auto entropyResult = measure_entropy(data);
+      print_entropy_result(config.inputFile, entropyResult);
+
+      auto freqResult = run_frequency_test(data);
+      print_frequency_result(config.inputFile, freqResult);
+
+      std::cout << "\n[Avalanche test encrypts the input as plaintext with a fixed random key/IV]\n";
+      auto avCBC = run_avalanche_test(CipherType::AES256_CBC, data);
+      print_avalanche_result("AES-256-CBC", avCBC);
+
+      auto avECB = run_avalanche_test(CipherType::AES256_ECB, data);
+      print_avalanche_result("AES-256-ECB", avECB);
+
+      auto avChacha = run_avalanche_test(CipherType::CHACHA20, data);
+      print_avalanche_result("ChaCha20", avChacha);
+
+    } catch (const std::exception& e) {
+      std::cerr << "Error: " << e.what() << std::endl;
+      return 1;
+    }
+    return 0;
   }
 
   // --- BENCHMARK command ---
