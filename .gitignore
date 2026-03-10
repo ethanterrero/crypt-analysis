@@ -34,3 +34,6 @@ CTestTestfile.cmake
 
 # Claude Code local config
 .claude/
+dashboard/node_modules/
+src/io/fileHandler 2.cpp
+src/io/fileHandler 2.h
