@@ -127,7 +127,18 @@ Download from [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.h
 - `decrypt` - Decrypt a file
 - `benchmark` - Compare algorithm performance
 - `verify` - Check file integrity
+- `analyze` - Run entropy, frequency, and avalanche analysis on a file
 - `help` - Show help information
+
+### Options
+
+| Command | Required flags | Optional flags |
+|---------|---------------|----------------|
+| `encrypt` | `-i`, `-o`, `-p` | `-a`, `-m`, `--verify` |
+| `decrypt` | `-i`, `-o`, `-p` | `-a`, `-m` |
+| `verify` | `-i` | |
+| `benchmark` | `-i` | `-p`, `--algorithms`, `--modes` |
+| `analyze` | `-i` | |
 
 ### Options
 
@@ -137,10 +148,10 @@ Download from [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.h
 | `--output, -o` | Output file path | Required |
 | `--algorithm, -a` | Encryption algorithm (aes256, chacha20) | aes256 |
 | `--mode, -m` | Cipher mode (ecb, cbc, gcm) | cbc |
-| `--password, -p` | Encryption password | Prompt if not provided |
-| `--keyfile, -k` | Path to key file | None |
-| `--verify, -v` | Enable integrity verification | false |
-| `--verbose` | Show detailed output | false |
+| `--password, -p` | Encryption password | Required for encrypt/decrypt |
+| `--verify` | Generate `.hash` sidecar on encrypt | false |
+| `--algorithms` | Comma-separated algorithms for benchmark | aes256,chacha20 |
+| `--modes` | Comma-separated modes for benchmark | cbc,ecb,gcm |
 
 ## Project Structure
 
@@ -150,39 +161,32 @@ crypt-analysis/
 │   ├── main.cpp              # CLI entry point
 │   ├── crypto/
 │   │   ├── encryptor.h       # Encryption base class interface
-│   │   ├── aes_cipher.h      # AES-256 (ECB/CBC/GCM) implementation
-│   │   ├── aes_cipher.cpp
-│   │   ├── chacha_cipher.h   # ChaCha20 implementation
-│   │   ├── chacha_cipher.cpp
-│   │   ├── key_derivation.h  # PBKDF2-HMAC-SHA256 key derivation
-│   │   ├── key_derivation.cpp
-│   │   ├── file_format.h     # Encrypted file header format
-│   │   └── file_format.cpp
+│   │   ├── aes_cipher.h/.cpp # AES-256 (ECB/CBC/GCM) implementation
+│   │   ├── chacha_cipher.h/.cpp  # ChaCha20 implementation
+│   │   ├── key_derivation.h/.cpp # PBKDF2-HMAC-SHA256 key derivation
+│   │   └── file_format.h/.cpp    # Encrypted file header format
 │   ├── io/
-│   │   ├── file_handler.h    # File I/O operations
-│   │   └── file_handler.cpp
+│   │   └── file_handler.h/.cpp   # File I/O operations
 │   ├── benchmark/
-│   │   ├── profiler.h        # CPU cycle + wall-clock profiler
-│   │   └── profiler.cpp
+│   │   └── profiler.h/.cpp       # CPU cycle + wall-clock profiler
 │   ├── metrics/
-│   │   ├── performance.h     # Performance tracking
-│   │   └── performance.cpp
+│   │   └── performance.h/.cpp    # Performance tracking
 │   ├── analysis/
-│   │   ├── avalanche.h       # Avalanche effect (diffusion) test
-│   │   ├── avalanche.cpp
-│   │   ├── entropy.h         # Shannon entropy measurement
-│   │   ├── entropy.cpp
-│   │   ├── frequency.h       # Chi-squared byte frequency test
-│   │   └── frequency.cpp
+│   │   ├── avalanche.h/.cpp      # Avalanche effect (bit-flip diffusion) test
+│   │   ├── entropy.h/.cpp        # Shannon entropy measurement
+│   │   └── frequency.h/.cpp      # Chi-squared byte frequency test
 │   └── utils/
-│       ├── hash.h            # SHA-256 hashing
-│       └── hash.cpp
+│       └── hash.h/.cpp           # SHA-256 hashing
 ├── tests/
+│   ├── test_helpers.h
 │   ├── test_encryption.cpp
-│   ├── test_performance.cpp
 │   ├── test_integrity.cpp
-│   ├── test_analysis.cpp
-│   └── test_helpers.h
+│   ├── test_performance.cpp
+│   └── test_analysis.cpp
+├── demo/
+│   ├── hexcompare.py         # Visual hex diff of two encrypted files
+│   ├── freqdist.py           # Byte frequency bar chart + chi-squared
+│   └── clean.sh              # Remove .enc/.dec/.hash files from demo/
 ├── CMakeLists.txt
 └── README.md
 ```

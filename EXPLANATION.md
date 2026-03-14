@@ -47,13 +47,22 @@ crypt-analysis/
 │   │   └── hash.h/.cpp             # SHA-256 hashing utilities
 │   ├── metrics/
 │   │   └── performance.h/.cpp      # Timing, throughput, memory tracking
-│   └── benchmark/
-│       └── profiler.h/.cpp         # CPU cycle counter and wall-clock timer
+│   ├── benchmark/
+│   │   └── profiler.h/.cpp         # CPU cycle counter and wall-clock timer
+│   └── analysis/
+│       ├── avalanche.h/.cpp        # Avalanche effect (bit-flip diffusion) test
+│       ├── entropy.h/.cpp          # Shannon entropy measurement
+│       └── frequency.h/.cpp        # Chi-squared byte frequency uniformity test
 ├── tests/
 │   ├── test_helpers.h              # MockEncryptor for test infrastructure
 │   ├── test_encryption.cpp         # Encryption round-trip tests (19 tests)
 │   ├── test_integrity.cpp          # SHA-256 hash verification tests (10 tests)
-│   └── test_performance.cpp        # Metrics and throughput tests (9 tests)
+│   ├── test_performance.cpp        # Metrics and throughput tests (9 tests)
+│   └── test_analysis.cpp           # Entropy, frequency, avalanche tests (20 tests)
+├── demo/
+│   ├── hexcompare.py               # Visual hex diff of two encrypted files
+│   ├── freqdist.py                 # Visual byte frequency bar chart
+│   └── clean.sh                    # Deletes .enc/.dec/.hash files from demo/
 ├── CMakeLists.txt                  # Build configuration
 └── EXPLANATION.md                  # This file
 ```
@@ -120,6 +129,11 @@ Built with Google Test (v1.14.0) fetched via CMake's `FetchContent`. Tests run t
 - Memory usage reports a non-zero value
 - BuildReport populates all fields correctly
 - AES-CBC and ChaCha20 both achieve >1 MB/s on any modern hardware
+
+**Analysis Tests (`test_analysis.cpp`):**
+- Shannon entropy: empty input, all-same byte (zero entropy), all-byte-values (max entropy = 8.0), pseudo-random data
+- Chi-squared frequency: non-uniform data fails, perfectly uniform data scores suspiciously high, pseudo-random data passes
+- Avalanche effect: AES-CBC average bit change near 50%, ChaCha20 near 0% (expected for stream ciphers), min ≤ avg ≤ max invariant
 
 ### Manual Testing
 
@@ -224,6 +238,19 @@ Input size: 1048576 bytes
 | `decrypt` | `-i`, `-o`, `-p` | `-a`, `-m` |
 | `verify` | `-i` | |
 | `benchmark` | `-i` | `-p`, `--algorithms`, `--modes` |
+| `analyze` | `-i` | |
+
+### Run cryptographic analysis
+
+Run entropy, frequency, and avalanche analysis on any file (plaintext or ciphertext):
+```bash
+./build/file-crypto analyze -i myfile.enc
+```
+
+Output includes:
+- **Shannon entropy** (bits/byte) — ideal ciphertext scores ~8.0
+- **Chi-squared byte frequency test** — p-value between 0.05 and 0.95 means the distribution looks random
+- **Avalanche effect** — per-cipher test showing how many ciphertext bits flip when one input bit changes; AES-CBC targets ~50%, ChaCha20 will score near 0% by design (stream cipher)
 
 ### Algorithm and mode options
 

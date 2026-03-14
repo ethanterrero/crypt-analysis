@@ -28,6 +28,7 @@ struct Config {
   bool verify = false;
   std::vector<std::string> benchAlgorithms;
   std::vector<std::string> benchModes;
+  std::string analyzeTest;  // "entropy", "frequency", "avalanche", or "" (all)
 };
 
 // Split a comma-separated string into tokens
@@ -48,7 +49,7 @@ void print_help() {
             << "  decrypt    Decrypt a file\n"
             << "  verify     Verify file integrity using .hash sidecar\n"
             << "  benchmark  Run encryption benchmarks\n"
-            << "  analyze    Run entropy, frequency, and avalanche analysis on a file\n"
+            << "  analyze    Run cryptographic analysis on a file\n"
             << "Options:\n"
             << "  -i, --input <file>         Input file path\n"
             << "  -o, --output <file>        Output file path\n"
@@ -59,6 +60,8 @@ void print_help() {
             << "  --verify                   Generate .hash sidecar on encrypt\n"
             << "  --algorithms <list>        Comma-separated algorithms for benchmark\n"
             << "  --modes <list>             Comma-separated modes for benchmark\n"
+            << "  --test <name>              Analysis test to run: entropy, frequency,\n"
+            << "                             avalanche. Omit to run all three.\n"
             << "  -h, --help                 Show this help message\n";
 }
 
@@ -102,6 +105,9 @@ int main(int argc, char *argv[]) {
     } else if (arg == "--modes") {
       if (i + 1 < argc)
         config.benchModes = splitCSV(argv[++i]);
+    } else if (arg == "--test") {
+      if (i + 1 < argc)
+        config.analyzeTest = argv[++i];
     } else if (arg == "-h" || arg == "--help") {
       print_help();
       return 0;
@@ -156,24 +162,39 @@ int main(int argc, char *argv[]) {
       std::cerr << "Error: Input file is required for analyze (-i).\n";
       return 1;
     }
+
+    const std::string& test = config.analyzeTest;
+    if (!test.empty() && test != "entropy" && test != "frequency" && test != "avalanche") {
+      std::cerr << "Error: Unknown --test value '" << test << "'. "
+                << "Valid options: entropy, frequency, avalanche\n";
+      return 1;
+    }
+
     try {
       auto data = FileHandler::read_file(config.inputFile);
+      bool runAll = test.empty();
 
-      auto entropyResult = measure_entropy(data);
-      print_entropy_result(config.inputFile, entropyResult);
+      if (runAll || test == "entropy") {
+        auto result = measure_entropy(data);
+        print_entropy_result(config.inputFile, result);
+      }
 
-      auto freqResult = run_frequency_test(data);
-      print_frequency_result(config.inputFile, freqResult);
+      if (runAll || test == "frequency") {
+        auto result = run_frequency_test(data);
+        print_frequency_result(config.inputFile, result);
+      }
 
-      std::cout << "\n[Avalanche test encrypts the input as plaintext with a fixed random key/IV]\n";
-      auto avCBC = run_avalanche_test(CipherType::AES256_CBC, data);
-      print_avalanche_result("AES-256-CBC", avCBC);
+      if (runAll || test == "avalanche") {
+        std::cout << "\n[Avalanche test encrypts the input as plaintext with a fixed random key/IV]\n";
+        auto avCBC = run_avalanche_test(CipherType::AES256_CBC, data);
+        print_avalanche_result("AES-256-CBC", avCBC);
 
-      auto avECB = run_avalanche_test(CipherType::AES256_ECB, data);
-      print_avalanche_result("AES-256-ECB", avECB);
+        auto avECB = run_avalanche_test(CipherType::AES256_ECB, data);
+        print_avalanche_result("AES-256-ECB", avECB);
 
-      auto avChacha = run_avalanche_test(CipherType::CHACHA20, data);
-      print_avalanche_result("ChaCha20", avChacha);
+        auto avChacha = run_avalanche_test(CipherType::CHACHA20, data);
+        print_avalanche_result("ChaCha20", avChacha);
+      }
 
     } catch (const std::exception& e) {
       std::cerr << "Error: " << e.what() << std::endl;
