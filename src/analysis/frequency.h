@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+// storign the chi-squared frequency test results 
 struct FrequencyResult {
     double chi_squared;         // Raw chi-squared statistic — lower means more uniform
     double p_value;             // 0.0–1.0. Good ciphertext lands between 0.05 and 0.95
@@ -15,17 +16,15 @@ struct FrequencyResult {
     size_t least_common_count;
 };
 
-// Chi-squared test for byte frequency uniformity.
-//
-// Counts how often each of the 256 possible byte values appears in the
-// ciphertext and compares that distribution against a perfectly uniform one
-// (expected count = total_bytes / 256 per value).
-//
-// A strong cipher should produce ciphertext where every byte value appears
-// with roughly equal frequency. The chi-squared statistic measures the total
-// deviation from that ideal; the p-value expresses how likely a truly random
-// source would produce a deviation at least this large.
-//
+/*
+
+IDEA: Chi-square is measuring oru expectations against whats actually observed. 
+I always think about a simple example with a coin toss. We expect 50% heads, 50% tails, but if we were to get an observed result of 90% heads and 10% tails, how would we interpret that? Is it too extreme to be random or is it realistic enough of a real world observation. 
+
+What Chi-squared is doing in the context of cryptography is measuring our expected value of an even appearance of every possible byte. If we get a good enough distribution, it means we have good confusion since there is no identifiable pattern or hints about internal structure in the ciphertext that an attacker can exploit. 
+
+*/
+
 // p-value interpretation:
 //   < 0.05  — distribution is non-uniform, detectable patterns (FAIL)
 //   0.05–0.95 — looks random (PASS)

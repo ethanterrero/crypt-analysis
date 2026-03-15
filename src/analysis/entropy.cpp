@@ -7,39 +7,39 @@
 Shannon Entropy measures how random a byte sequence looks.
 
 There are 256 possible byte values (0x00 – 0xFF). For each value x, we
-compute how often it appears as a fraction p(x) of the total bytes. Then:
+compute how often it appears as a fraction p(x) of the total bytes. 
 
-    H = -Σ p(x) * log₂(p(x))   summed over all 256 possible byte values
+H = -Σ p(x) * log_2(p(x)) summed over all 256 possible byte values
 
-* p(x) close to 1/256 for every x  →  H close to 8.0  (perfectly random)
-* some p(x) much larger than others →  H well below 8.0 (detectable pattern)
-
-Max is 8.0 because a byte has 8 bits: you need all 8 bits of information to
-describe each byte when every value is equally likely.
-
-Unlike the avalanche test, this works directly on any ciphertext buffer.
-No fixed key or OpenSSL calls needed here — just count bytes.
+The log_2 maps probabilities to bits. The idea is we log_2(1/p). The rarer the value, the more information it carries. Lets say p = 1/2 => log_2(2) = 1 bit. 
 */
 
 EntropyResult measure_entropy(const std::vector<uint8_t>& data) {
     if (data.empty()) return {};
+    // taking in the ciphertext vector
+
+    // does the same thing as frequency.cpp where each byte occurance indexes into the array and we increment it
     size_t counts[256] = {};
     for (uint8_t b : data) {
         counts[b]++;
     }
-    const double n = static_cast<double>(data.size());
+
+    const double n = static_cast<double>(data.size()); // size of data vector
     double entropy = 0.0;
     double min_freq = 1.0;
     double max_freq = 0.0;
     uint8_t min_byte = 0;
     uint8_t max_byte = 0;
     for (int i = 0; i < 256; ++i) {
-        if (counts[i] == 0) continue; // log₂(0) is undefined; skip missing values
-        double p = static_cast<double>(counts[i]) / n;
-        entropy -= p * std::log2(p);  // subtract because p < 1 makes log₂(p) negative
+        if (counts[i] == 0) continue; // if reads 0, just skip it 
+        double p = static_cast<double>(counts[i]) / n; // probability of that byte value appearing 
+        entropy -= p * std::log2(p); // subtracting a negative makes this positive
+
+        // by the end of the lop, we have the least and most common byte values and their frequencies 
         if (p < min_freq) { min_freq = p; min_byte = static_cast<uint8_t>(i); }
         if (p > max_freq) { max_freq = p; max_byte = static_cast<uint8_t>(i); }
     }
+    // creating the EntropyResult object to store this information 
     EntropyResult result{};
     result.entropy = entropy;
     result.min_byte_freq = min_freq;
