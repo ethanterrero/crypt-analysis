@@ -32,14 +32,13 @@ accurate to ~3 decimal places at df=255:
 /*
 So the issue is that the chi-squared stat is for a chi-squared distribution and if we want to use a p-value (we don't have the incomplete gamma function available since it isn't in the C++ standard library, so we would have to download an additional dependency which I didn't think was worthwhile since we have this shortcut) we need to take that chi-squred stat and convert that to a z-stat. This way, we can plug P(z), and see if that falls outside the set p-value. 
 */
-
 static double chi2_p_value(double chi2, int df) {
     double h = 2.0 / (9.0 * df);
     double z = (std::pow(chi2 / df, 1.0 / 3.0) - (1.0 - h)) / std::sqrt(h);
     return 0.5 * std::erfc(z / std::sqrt(2.0));
 }
 
-FrequencyResult run_frequency_test(const std::vector<uint8_t>& data) {
+FrequencyResult run_frequency_test(const std::vector<uint8_t>& data) { 
     // data vector holds the raw ciphertext bytes 
     if (data.empty()) return {};
 

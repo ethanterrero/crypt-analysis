@@ -105,7 +105,7 @@ static bool encrypt_chacha20(const std::vector<uint8_t>& plaintext,
         EVP_EncryptUpdate(ctx, output.data(), &len,
                           plaintext.data(), static_cast<int>(plaintext.size())) != 1) {
         EVP_CIPHER_CTX_free(ctx);
-        return false;
+        return false; 
     }
     total = len;
 
