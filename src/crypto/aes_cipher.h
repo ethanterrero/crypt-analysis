@@ -27,9 +27,6 @@ private:
     static const int KEY_SIZE = 32;  // 256 bits
     static const int IV_SIZE = 16;   // 128 bits
     static const int SALT_SIZE = KeyDerivation::SALT_SIZE;
-    static const int GCM_TAG_SIZE = 16;
-    static const int GCM_IV_SIZE = 12;
-
     const EVP_CIPHER* getCipher() const;
     int getIVSize() const;
 };

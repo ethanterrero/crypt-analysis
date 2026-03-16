@@ -56,7 +56,7 @@ void print_help() {
             << "  -p, --password <pass>      Encryption password\n"
             << "  -a, --algorithm <name>     Algorithm (aes256, chacha20). "
                "Default: aes256\n"
-            << "  -m, --mode <name>          Mode (cbc, ecb, gcm). Default: cbc\n"
+            << "  -m, --mode <name>          Mode (cbc, ecb). Default: cbc\n"
             << "  --verify                   Generate .hash sidecar on encrypt\n"
             << "  --algorithms <list>        Comma-separated algorithms for benchmark\n"
             << "  --modes <list>             Comma-separated modes for benchmark\n"
@@ -218,7 +218,7 @@ int main(int argc, char *argv[]) {
       config.benchAlgorithms = {"aes256", "chacha20"};
     }
     if (config.benchModes.empty()) {
-      config.benchModes = {"cbc", "ecb", "gcm"};
+      config.benchModes = {"cbc", "ecb"};
     }
 
     try {

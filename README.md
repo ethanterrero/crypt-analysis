@@ -19,7 +19,6 @@ File Encryption Tester provides a practical tool for secure file encryption whil
 - **Cipher Modes of Operation**
   - ECB (Electronic Codebook)
   - CBC (Cipher Block Chaining)
-  - GCM (Galois/Counter Mode with authentication)
 
 - **Performance Metrics**
   - Encryption/decryption speed (MB/s)
@@ -147,11 +146,11 @@ Download from [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.h
 | `--input, -i` | Input file path | Required |
 | `--output, -o` | Output file path | Required |
 | `--algorithm, -a` | Encryption algorithm (aes256, chacha20) | aes256 |
-| `--mode, -m` | Cipher mode (ecb, cbc, gcm) | cbc |
+| `--mode, -m` | Cipher mode (ecb, cbc) | cbc |
 | `--password, -p` | Encryption password | Required for encrypt/decrypt |
 | `--verify` | Generate `.hash` sidecar on encrypt | false |
 | `--algorithms` | Comma-separated algorithms for benchmark | aes256,chacha20 |
-| `--modes` | Comma-separated modes for benchmark | cbc,ecb,gcm |
+| `--modes` | Comma-separated modes for benchmark | cbc,ecb |
 
 ## Project Structure
 
@@ -161,7 +160,7 @@ crypt-analysis/
 │   ├── main.cpp              # CLI entry point
 │   ├── crypto/
 │   │   ├── encryptor.h       # Encryption base class interface
-│   │   ├── aes_cipher.h/.cpp # AES-256 (ECB/CBC/GCM) implementation
+│   │   ├── aes_cipher.h/.cpp # AES-256 (ECB/CBC) implementation
 │   │   ├── chacha_cipher.h/.cpp  # ChaCha20 implementation
 │   │   ├── key_derivation.h/.cpp # PBKDF2-HMAC-SHA256 key derivation
 │   │   └── file_format.h/.cpp    # Encrypted file header format
@@ -224,7 +223,7 @@ crypt-analysis/
 ⚠️ **Educational Purpose**: This tool is designed for educational purposes to demonstrate encryption concepts and performance characteristics.
 
 - Use strong, unique passwords for encryption
-- ECB mode has known vulnerabilities - use CBC or GCM for production
+- ECB mode has known vulnerabilities - use CBC for production
 - Password-based encryption uses PBKDF2 for key derivation
 - Always verify file integrity after encryption/decryption
 - Keep your encryption keys secure and backed up

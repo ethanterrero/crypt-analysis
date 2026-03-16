@@ -22,7 +22,6 @@ enum AlgorithmID : uint8_t {
 enum ModeID : uint8_t {
     MODE_CBC = 0x01,
     MODE_ECB = 0x02,
-    MODE_GCM = 0x03,
     MODE_NONE = 0x00,  // for stream ciphers like ChaCha20
 };
 

@@ -101,63 +101,6 @@ TEST(AesECB, EmptyInput) {
 }
 
 // ========================
-// AES-GCM Tests
-// ========================
-
-TEST(AesGCM, RoundTrip) {
-    AesCipher cipher("gcm");
-    auto input = makeTestData(1024);
-    std::vector<uint8_t> encrypted, decrypted;
-
-    ASSERT_TRUE(cipher.encrypt(input, "testpassword", encrypted));
-    ASSERT_TRUE(cipher.decrypt(encrypted, "testpassword", decrypted));
-    EXPECT_EQ(input, decrypted);
-}
-
-TEST(AesGCM, WrongPasswordFails) {
-    AesCipher cipher("gcm");
-    auto input = makeTestData(256);
-    std::vector<uint8_t> encrypted, decrypted;
-
-    ASSERT_TRUE(cipher.encrypt(input, "correctpass", encrypted));
-    // GCM auth tag should fail with wrong password
-    EXPECT_FALSE(cipher.decrypt(encrypted, "wrongpass", decrypted));
-}
-
-TEST(AesGCM, TamperedDataFails) {
-    AesCipher cipher("gcm");
-    auto input = makeTestData(256);
-    std::vector<uint8_t> encrypted, decrypted;
-
-    ASSERT_TRUE(cipher.encrypt(input, "password", encrypted));
-    // Tamper with a byte in the ciphertext area (after header)
-    if (encrypted.size() > 40) {
-        encrypted[40] ^= 0xFF;
-    }
-    EXPECT_FALSE(cipher.decrypt(encrypted, "password", decrypted));
-}
-
-TEST(AesGCM, EmptyInput) {
-    AesCipher cipher("gcm");
-    std::vector<uint8_t> input;
-    std::vector<uint8_t> encrypted, decrypted;
-
-    ASSERT_TRUE(cipher.encrypt(input, "password", encrypted));
-    ASSERT_TRUE(cipher.decrypt(encrypted, "password", decrypted));
-    EXPECT_EQ(input, decrypted);
-}
-
-TEST(AesGCM, LargeFile) {
-    AesCipher cipher("gcm");
-    auto input = makeTestData(1024 * 1024); // 1 MB
-    std::vector<uint8_t> encrypted, decrypted;
-
-    ASSERT_TRUE(cipher.encrypt(input, "largefile_pass", encrypted));
-    ASSERT_TRUE(cipher.decrypt(encrypted, "largefile_pass", decrypted));
-    EXPECT_EQ(input, decrypted);
-}
-
-// ========================
 // ChaCha20 Tests
 // ========================
 

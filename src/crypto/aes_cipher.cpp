@@ -15,13 +15,11 @@ AesCipher::~AesCipher() {
 const EVP_CIPHER* AesCipher::getCipher() const {
     if (m_mode == "cbc") return EVP_aes_256_cbc();
     if (m_mode == "ecb") return EVP_aes_256_ecb();
-    if (m_mode == "gcm") return EVP_aes_256_gcm();
-    throw std::runtime_error("Unknown AES mode: " + m_mode + " (supported: cbc, ecb, gcm)");
+    throw std::runtime_error("Unknown AES mode: " + m_mode + " (supported: cbc, ecb)");
 }
 
 int AesCipher::getIVSize() const {
     if (m_mode == "ecb") return 0;
-    if (m_mode == "gcm") return GCM_IV_SIZE;
     return IV_SIZE;
 }
 
@@ -53,25 +51,10 @@ bool AesCipher::encrypt(const std::vector<uint8_t> &input, const std::string &ke
 
     // Initialize Encryption
     const EVP_CIPHER *cipher = getCipher();
-    if (m_mode == "gcm") {
-        if (1 != EVP_EncryptInit_ex(ctx, cipher, NULL, NULL, NULL)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-        if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, GCM_IV_SIZE, NULL)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-        if (1 != EVP_EncryptInit_ex(ctx, NULL, NULL, aesKey, aesIv)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-    } else {
-        unsigned char *ivPtr = (ivSize > 0) ? aesIv : NULL;
-        if (1 != EVP_EncryptInit_ex(ctx, cipher, NULL, aesKey, ivPtr)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
+    unsigned char *ivPtr = (ivSize > 0) ? aesIv : NULL;
+    if (1 != EVP_EncryptInit_ex(ctx, cipher, NULL, aesKey, ivPtr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
     }
 
     // Encrypt Data
@@ -93,16 +76,6 @@ bool AesCipher::encrypt(const std::vector<uint8_t> &input, const std::string &ke
     ciphertext_len += len;
 
     output.resize(header_size + ciphertext_len);
-
-    // For GCM, append the 16-byte authentication tag
-    if (m_mode == "gcm") {
-        unsigned char tag[GCM_TAG_SIZE];
-        if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_GET_TAG, GCM_TAG_SIZE, tag)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-        output.insert(output.end(), tag, tag + GCM_TAG_SIZE);
-    }
 
     EVP_CIPHER_CTX_free(ctx);
     return true;
@@ -148,46 +121,16 @@ bool AesCipher::decrypt(const std::vector<uint8_t> &input, const std::string &ke
     // Resolve mode string from header
     std::string modeStr = FileFormat::modeToString(mode);
 
-    // For GCM, extract the auth tag from the end
-    unsigned char tag[GCM_TAG_SIZE];
-    if (modeStr == "gcm") {
-        if (dataLen < static_cast<size_t>(GCM_TAG_SIZE)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-        dataLen -= GCM_TAG_SIZE;
-        memcpy(tag, input.data() + dataStart + dataLen, GCM_TAG_SIZE);
-    }
-
     // Initialize Decryption using mode from file header, not constructor
     const EVP_CIPHER *cipher;
     if (modeStr == "cbc") cipher = EVP_aes_256_cbc();
     else if (modeStr == "ecb") cipher = EVP_aes_256_ecb();
-    else if (modeStr == "gcm") cipher = EVP_aes_256_gcm();
     else { EVP_CIPHER_CTX_free(ctx); return false; }
-    if (modeStr == "gcm") {
-        if (1 != EVP_DecryptInit_ex(ctx, cipher, NULL, NULL, NULL)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-        if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, ivSize, NULL)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-        if (1 != EVP_DecryptInit_ex(ctx, NULL, NULL, aesKey, aesIv)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-        if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_TAG, GCM_TAG_SIZE, tag)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
-    } else {
-        unsigned char *ivPtr = (ivSize > 0) ? aesIv : NULL;
-        if (1 != EVP_DecryptInit_ex(ctx, cipher, NULL, aesKey, ivPtr)) {
-            EVP_CIPHER_CTX_free(ctx);
-            return false;
-        }
+
+    unsigned char *ivPtr = (ivSize > 0) ? aesIv : NULL;
+    if (1 != EVP_DecryptInit_ex(ctx, cipher, NULL, aesKey, ivPtr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
     }
 
     // Decrypt

@@ -12,7 +12,7 @@ A command-line file encryption tool written in C++17 that supports multiple encr
 ### Core Features
 
 1. **Encryption/Decryption** with two algorithms:
-   - **AES-256** in three cipher modes: CBC, ECB, and GCM
+   - **AES-256** in two cipher modes: CBC and ECB
    - **ChaCha20** (stream cipher)
 
 2. **Secure Key Derivation** using PBKDF2-HMAC-SHA256 with 100,000 iterations and a 16-byte random salt. This replaces a naive single-pass SHA-256 hash and makes brute-force attacks significantly harder.
@@ -37,7 +37,7 @@ crypt-analysis/
 │   ├── main.cpp                    # CLI entry point and argument parser
 │   ├── crypto/
 │   │   ├── encryptor.h             # Abstract base class (interface)
-│   │   ├── aes_cipher.h/.cpp       # AES-256 implementation (CBC/ECB/GCM)
+│   │   ├── aes_cipher.h/.cpp       # AES-256 implementation (CBC/ECB)
 │   │   ├── chacha_cipher.h/.cpp    # ChaCha20 implementation
 │   │   ├── key_derivation.h/.cpp   # Shared PBKDF2 key derivation
 │   │   └── file_format.h/.cpp      # File header read/write
@@ -55,7 +55,7 @@ crypt-analysis/
 │       └── frequency.h/.cpp        # Chi-squared byte frequency uniformity test
 ├── tests/
 │   ├── test_helpers.h              # MockEncryptor for test infrastructure
-│   ├── test_encryption.cpp         # Encryption round-trip tests (19 tests)
+│   ├── test_encryption.cpp         # Encryption round-trip tests (14 tests)
 │   ├── test_integrity.cpp          # SHA-256 hash verification tests (10 tests)
 │   ├── test_performance.cpp        # Metrics and throughput tests (9 tests)
 │   └── test_analysis.cpp           # Entropy, frequency, avalanche tests (20 tests)
@@ -76,7 +76,7 @@ All changes were made in 9 incremental commits on the `dev/ethan` branch:
 | Commit | Task | Description |
 |--------|------|-------------|
 | 1 | E1 | Replaced weak SHA-256 key derivation with PBKDF2 (100k iterations, 16-byte salt) |
-| 2 | E2 | Added AES cipher mode selection (CBC, ECB, GCM) with GCM auth tag handling |
+| 2 | E2 | Added AES cipher mode selection (CBC, ECB) |
 | 3 | M1 | Created SHA-256 hash utility with streaming file hashing |
 | 4 | M2 | Built performance metrics module and implemented CPU cycle profiler |
 | 5 | N1+N6 | Set up Google Test framework, moved MockEncryptor to tests, cleaned up .gitignore |
@@ -91,24 +91,21 @@ All changes were made in 9 incremental commits on the `dev/ethan` branch:
 
 - **IV stored in header, not derived from password:** Deriving the IV from the password means the same password always produces the same IV, which is a known weakness for CBC mode. Storing a random IV in the header ensures unique ciphertext even for identical plaintext+password combinations.
 
-- **GCM authentication tag appended after ciphertext:** GCM provides authenticated encryption. The 16-byte tag is appended to the ciphertext on encrypt and extracted on decrypt. If the ciphertext or tag is tampered with, decryption fails immediately.
-
 - **Shared LIB_SOURCES in CMake:** The same set of library source files is compiled into both the main executable and the test executable, avoiding code duplication and ensuring tests run against the same code that ships.
 
 ---
 
 ## How We Tested It
 
-### Automated Tests (38 total, all passing)
+### Automated Tests (53 total, all passing)
 
 Built with Google Test (v1.14.0) fetched via CMake's `FetchContent`. Tests run through CTest.
 
-**Encryption Tests (19 tests in `test_encryption.cpp`):**
-- Round-trip encrypt/decrypt for every algorithm+mode (AES-CBC, AES-ECB, AES-GCM, ChaCha20)
-- Wrong password rejection (CBC/ECB fail on padding, GCM fails on auth tag)
+**Encryption Tests (14 tests in `test_encryption.cpp`):**
+- Round-trip encrypt/decrypt for every algorithm+mode (AES-CBC, AES-ECB, ChaCha20)
+- Wrong password rejection (CBC/ECB fail on padding check)
 - Empty input handling
 - Large file support (1 MB)
-- GCM tamper detection (flipping a ciphertext byte causes auth failure)
 - Invalid cipher mode throws an exception
 - Encrypted output differs from plaintext
 
@@ -144,7 +141,7 @@ Every commit was verified with a manual encrypt/decrypt round-trip:
 diff testfile testfile.dec   # no output = files are identical
 ```
 
-This was repeated for all modes (`-m cbc`, `-m ecb`, `-m gcm`) and both algorithms (`-a aes256`, `-a chacha20`).
+This was repeated for all modes (`-m cbc`, `-m ecb`) and both algorithms (`-a aes256`, `-a chacha20`).
 
 ---
 
@@ -181,7 +178,7 @@ cd build && ctest --output-on-failure
 
 With a specific algorithm and mode:
 ```bash
-./build/file-crypto encrypt -i myfile.txt -o myfile.enc -p "my password" -a aes256 -m gcm
+./build/file-crypto encrypt -i myfile.txt -o myfile.enc -p "my password" -a aes256 -m cbc
 ```
 
 With integrity hash sidecar:
@@ -215,7 +212,7 @@ Compare all algorithms and modes:
 
 Compare specific combinations:
 ```bash
-./build/file-crypto benchmark -i myfile.txt --algorithms aes256,chacha20 --modes cbc,gcm
+./build/file-crypto benchmark -i myfile.txt --algorithms aes256,chacha20 --modes cbc,ecb
 ```
 
 Example output:
@@ -224,7 +221,6 @@ Algorithm   Mode      Enc (MB/s)  Dec (MB/s)     Enc (s)     Dec (s)    Overhead
 ----------------------------------------------------------------------------------
 aes256      cbc            24.63       29.06    0.040593    0.034408        0.0%       1048628
 aes256      ecb            29.30       29.26    0.034130    0.034175        0.0%       1048612
-aes256      gcm            28.95       29.17    0.034548    0.034280        0.0%       1048624
 chacha20    none           28.49       28.98    0.035095    0.034511        0.0%       1048612
 
 Input size: 1048576 bytes
@@ -263,7 +259,6 @@ Output includes:
 |------|-----------|-------|
 | CBC | `cbc` | Cipher Block Chaining (default) |
 | ECB | `ecb` | Electronic Codebook (not recommended - identical blocks produce identical ciphertext) |
-| GCM | `gcm` | Galois/Counter Mode (authenticated encryption, recommended) |
 
 ChaCha20 does not use a mode flag (it is always a stream cipher).
 
@@ -277,11 +272,10 @@ Every encrypted file begins with a header that allows the tool to auto-detect se
 Offset  Size  Field
 0       2     Magic bytes ("FC" = 0x46 0x43)
 2       1     Algorithm ID (0x01 = AES-256, 0x02 = ChaCha20)
-3       1     Mode ID (0x01 = CBC, 0x02 = ECB, 0x03 = GCM, 0x00 = none)
+3       1     Mode ID (0x01 = CBC, 0x02 = ECB, 0x00 = none)
 4       16    Salt (random, used for PBKDF2 key derivation)
-20      var   IV (16 bytes for CBC/ChaCha20, 12 bytes for GCM, 0 for ECB)
+20      var   IV (16 bytes for CBC/ChaCha20, 0 for ECB)
 var     var   Ciphertext
-var     16    GCM auth tag (only present in GCM mode)
 ```
 
 ---
@@ -332,7 +326,7 @@ Demonstrate that the wrong password does not silently produce garbage — it act
 # Output: "Operation failed."
 ```
 
-**Talking point:** CBC and ECB modes use PKCS#7 padding. If the wrong key is used, the padding bytes are invalid and OpenSSL rejects the decryption. GCM goes further — its authentication tag will not match, so tampering is also caught.
+**Talking point:** CBC and ECB modes use PKCS#7 padding. If the wrong key is used, the padding bytes are invalid and OpenSSL rejects the decryption.
 
 ### 3. Comparing Cipher Modes
 
@@ -345,17 +339,16 @@ python3 -c "print('AAAA' * 1000)" > repeated.txt
 # Encrypt with each mode
 ./build/file-crypto encrypt -i repeated.txt -o repeated_cbc.enc -p demo -m cbc
 ./build/file-crypto encrypt -i repeated.txt -o repeated_ecb.enc -p demo -m ecb
-./build/file-crypto encrypt -i repeated.txt -o repeated_gcm.enc -p demo -m gcm
 
-# Compare file sizes (ECB has no IV, GCM has an auth tag)
-ls -l repeated_cbc.enc repeated_ecb.enc repeated_gcm.enc
+# Compare file sizes (ECB has no IV)
+ls -l repeated_cbc.enc repeated_ecb.enc
 
-# All three decrypt correctly
-./build/file-crypto decrypt -i repeated_gcm.enc -o repeated_check.txt -p demo
-diff repeated.txt repeated_check.txt && echo "GCM round-trip OK"
+# Both decrypt correctly
+./build/file-crypto decrypt -i repeated_cbc.enc -o repeated_check.txt -p demo
+diff repeated.txt repeated_check.txt && echo "CBC round-trip OK"
 ```
 
-**Talking point:** ECB encrypts each block independently — identical plaintext blocks produce identical ciphertext blocks. CBC and GCM do not have this weakness. GCM additionally provides authentication, which is why it is recommended for real-world use.
+**Talking point:** ECB encrypts each block independently — identical plaintext blocks produce identical ciphertext blocks. CBC does not have this weakness because the previous ciphertext block is XOR'd into each new block before encryption.
 
 ### 3b. ECB Pattern Leakage — Visual Hex Comparison
 
@@ -435,7 +428,6 @@ Algorithm   Mode      Enc (MB/s)  Dec (MB/s)     Enc (s)     Dec (s)    Overhead
 ----------------------------------------------------------------------------------
 aes256      cbc            24.63       29.06    0.040593    0.034408        0.0%       1048628
 aes256      ecb            29.30       29.26    0.034130    0.034175        0.0%       1048612
-aes256      gcm            28.95       29.17    0.034548    0.034280        0.0%       1048624
 chacha20    none           28.49       28.98    0.035095    0.034511        0.0%       1048612
 
 Input size: 1048576 bytes
@@ -443,7 +435,6 @@ Input size: 1048576 bytes
 
 **Talking points:**
 - ECB is slightly faster because it has no IV and no chaining dependency between blocks.
-- GCM adds only 16 bytes of overhead (the auth tag) while providing authentication.
 - ChaCha20 throughput is competitive with AES on ARM hardware (Apple Silicon has hardware AES acceleration, so AES may appear faster on Intel/AMD).
 - Overhead is near zero for all modes on a 1 MB file because the header and padding are tiny relative to the data.
 
@@ -470,17 +461,17 @@ cd build && ctest --output-on-failure
 
 Expected output:
 ```
-100% tests passed, 0 tests failed out of 38
+100% tests passed, 0 tests failed out of 53
 ```
 
-**Talking point:** We have 38 automated tests covering encryption round-trips for every algorithm and mode, wrong-password rejection, empty input, 1 MB files, GCM tamper detection, SHA-256 hashing, and performance sanity checks. The tests run in under 2 seconds.
+**Talking point:** We have 53 automated tests covering encryption round-trips for every algorithm and mode, wrong-password rejection, empty input, 1 MB files, SHA-256 hashing, and performance sanity checks. The tests run in under 3 seconds.
 
 ### 9. Cleanup
 
 ```bash
 rm -f demo.txt demo.enc demo_recovered.txt demo_bad.txt demo_chacha.enc demo_chacha.txt
 rm -f demo_verified.enc demo_verified.enc.hash
-rm -f repeated.txt repeated_cbc.enc repeated_ecb.enc repeated_gcm.enc repeated_check.txt
+rm -f repeated.txt repeated_cbc.enc repeated_ecb.enc repeated_check.txt
 rm -f bench_input.bin bench_input.bin.enc
 ```
 

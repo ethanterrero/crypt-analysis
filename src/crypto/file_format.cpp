@@ -22,7 +22,6 @@ std::string algorithmToString(AlgorithmID id) {
 ModeID modeFromString(const std::string &name) {
     if (name == "cbc")  return MODE_CBC;
     if (name == "ecb")  return MODE_ECB;
-    if (name == "gcm")  return MODE_GCM;
     if (name == "none") return MODE_NONE;
     throw std::runtime_error("Unknown mode: " + name);
 }
@@ -31,7 +30,6 @@ std::string modeToString(ModeID id) {
     switch (id) {
         case MODE_CBC:  return "cbc";
         case MODE_ECB:  return "ecb";
-        case MODE_GCM:  return "gcm";
         case MODE_NONE: return "none";
         default: throw std::runtime_error("Unknown mode ID");
     }
@@ -41,7 +39,6 @@ int getIVSize(AlgorithmID algo, ModeID mode) {
     if (algo == ALGO_CHACHA20) return 16;  // 4-byte counter + 12-byte nonce
     // AES modes
     if (mode == MODE_ECB) return 0;
-    if (mode == MODE_GCM) return 12;
     return 16; // CBC default
 }
 
